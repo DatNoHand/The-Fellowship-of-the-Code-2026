@@ -45,14 +45,17 @@ Unser Fokus lag darauf, die Gefahren der Reise nach Bruchtal in konkrete App-Fun
 ## AI Assistance
 
 **What did we expect?**
- 
 Wir hatten gehofft, dass die KI uns dabei hilft, unsere ersten groben Ideen für die App schnell zu sortieren und uns Tipps gibt, wie wir das Projekt auf GitHub und in VS Code am besten strukturieren.
+
 **What actually happened?**
 Die KI hat unsere Brainstorming-Punkte aufgenommen und daraus konkrete Features gemacht, auf die wir alleine vielleicht nicht so schnell gekommen wären. Das Setup von GitHub und VS Code ging dadurch auch zügiger, weil wir direkt wussten, welche Schritte wir nacheinander machen müssen.
+
 **How did AI help or mislead us?**
 Die KI hat uns vor allem dabei geholfen, unsere Gedanken zu "schärfen" und eine logische Struktur in die Planung zu bringen. Sie hat uns als Sparringspartner gedient, um von der ersten Idee schnell zu einem fertigen Konzept zu kommen. Wirkliche "Misleads" oder Fehler gab es bisher nicht, da wir die Vorschläge direkt auf unsere Bedürfnisse angepasst haben.
+
 **What decision (changes) did we make consciously?**
 Wir haben uns bewusst dazu entschieden, die KI-Vorschläge nicht einfach blind zu übernehmen.
+
 **What would we do differently next time?**
 Wir haben gemerkt, dass wir uns als Gruppe noch besser organisieren müssen. Nächstes Mal würden wir uns vor dem Start klarere Absprachen geben, wer welche Aufgabe übernimmt.
 
