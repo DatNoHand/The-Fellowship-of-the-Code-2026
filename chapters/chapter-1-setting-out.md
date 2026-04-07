@@ -32,7 +32,7 @@ It shows **what was added, why it was added, and how it fits into the larger sys
 
 *`Adapt to your project...`*
 
-**File:** [artifact-1](https://github.com/DatNoHand/The-Fellowship-of-the-Code-2026/artifacts/artifact-1/artifact-1-situation-intent.md)
+**File:** [artifact-1](https://github.com/DatNoHand/The-Fellowship-of-the-Code-2026/blob/main/artifacts/artifact-1/artifact-1-situation-intent.md)
 
 **Build:**
 
