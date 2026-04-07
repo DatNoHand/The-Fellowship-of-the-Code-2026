@@ -5,7 +5,7 @@
 Unsere Hobbits sind gerade aufgebrochen auf den Weg nach Bruchtal zu dem Elbenvolk und Elrond.
 Die Gruppe besteht aus Frodo, Samweis, Merry und Pippin.
 
-Auf dem Weg werden sie von den Nasgrul überrascht und retten sich in ein kleines Walddorf. Die Hobbits verfügen weder über militärische Erfahrung noch über geografische Kenntnisse außerhalb des Auenlands. Außerdem fehlt ihnen jegliches Wissen über die spezifischen Fähigkeiten ihrer Verfolger.
+Auf dem Weg werden sie von den Nazgul überrascht und retten sich in ein kleines Walddorf. Die Hobbits verfügen weder über militärische Erfahrung noch über geografische Kenntnisse außerhalb des Auenlands. Außerdem fehlt ihnen jegliches Wissen über die spezifischen Fähigkeiten ihrer Verfolger.
 
 ## Intent
 
