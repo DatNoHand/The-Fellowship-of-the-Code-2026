@@ -2,7 +2,7 @@
 
 *`The Fellowship of the Code – A Developer's Tale`*
 
-*`LOTR Quote relevant to the assignment or artifact` `"..." - Character`*
+*`Nicht alle, die umherwandern, sind verloren.“ — Bilbo Beutlin`*
 
 **Table of Contents**
 
@@ -12,19 +12,14 @@
   - [Chapters](#chapters)
   - [Key Features of The Fellowship Companion](#key-features-of-the-fellowship-companion)
   - [Changelog](#changelog)
+    - [v1.0](#v10)
 
 ---
 
 ## Purpose of The Fellowship Companion (TFC)
 
-*`Adapt to your project...`*
-
-We are 5 hobbits on our great journey from the Shire to Mordor. Along the way, we need a system to support **our planning, decisions, communication, and survival**.  
-The Fellowship Companion is a **evolving digital tool** we build together. It is not perfect, it is not finished - it evolves as we travel.
-
-- **Who we are:** The Fellowship - a group of 5 hobbits (students) working together.  
-- **What we build:** A companion system that helps manage our journey, resources, and tasks.  
-- **Why we build it:** So our journey succeeds and we understand the mindset, logic, design, and practice of developers.
+Vier unerfahrene Hobbits haben das Auenland verlassen. Frodo, Samweis, Merry und Pippin. Sie bringen weder militärisches Wissen noch geografische Kenntnisse mit. Die Nazgûl sind ihnen auf den Fersen, Bruchtal liegt weit entfernt und die Wildnis birgt Gefahren, die sie nicht kennen.
+Der Fellowship Companion ist ihr digitaler Weggefährte. Er hilft ihnen, sich sicher zu orientieren, Bedrohungen frühzeitig zu erkennen und durch gesammeltes Wissen eigenständig zu überleben.
 
 ---
 
@@ -44,48 +39,26 @@ The Fellowship Companion is a **evolving digital tool** we build together. It is
 
    [Go to Chapter I →](chapters/chapter-1-setting-out.md)
 
-2. **Chapter II - Paths & Choices**  
-   *"All we have to decide is what to do with the time that is given us." - Gandalf*
-
-   [Go to Chapter II →](chapters/chapter-2-paths-and-choices.md)
-
-3. **Chapter III - Making It Visible**  
-   *"I like less than half of you half as well as you deserve." - Bilbo*
-
-   [Go to Chapter III →](chapters/chapter-3-making-it-visible.md)
-
-4. **Chapter IV - When Things React**  
-   *"Even the wise cannot see all ends." - Gandalf*
-
-   [Go to Chapter IV →](chapters/chapter-4-when-things-react.md)
-
-5. **Chapter V - The Tale Continues**  
-   *"The tale grew in the telling." - Bilbo*
-
-   [Go to Chapter V →](chapters/chapter-5-the-tale-continues.md)
-
 ---
 
 ## Key Features of The Fellowship Companion
 
-*`Adapt to your project...`*
+**Karten & GPS-Tracking**
+Interaktive Karten mit Echtzeit-Standort aller Gruppenmitglieder. Kein Hobbit geht im unbekannten Terrain verloren.
 
-- **Journey Planning:** map tasks, flows, and deadlines  
-- **Resource Management:** track fictional "hobbit resources" (food, supplies, morale)  
-- **Decision Support:** flows and logic for key choices on the journey  
-- **Communication:** share work, reflections, and AI learnings  
-- **Versioned & Evolving:** artifacts build on each other, tracked in The Red Book
+**Nazgul-Frühwarnsystem**
+Radar-basierte Erkennung von Reitern und anderen Bedrohungen. Ein digitales Gegenstück zu Frodos leuchtendem Schwert.
+
+**Lexikon**
+Allwissendes Nachschlagewerk für Kreaturen, Überlebenstipps, Magie, Tränke und Rezepte. Ein Sprachwörterbuch zur Verständigung mit Elben, Menschen und anderen Völkern entlang des Weges ist auch enthalten.
 
 ---
 
 ## Changelog
 
-*`This is our general changelog (e.g., new chapter contents added, rules changed, or major system revisions).`*
+> This is our general changelog (e.g., new chapter contents added, rules changed, or major system revisions).
+  Each chapter has its own detailed changelog for chapter-specific updates.
 
-*`Each chapter has its own detailed changelog for chapter-specific updates.`*
+### v1.0
 
-*`Adapt to your project...`*
-
-- X
-- Y
-- Z
+Wir haben das Github Repository erstellt, das Konzept zum Companion in Artefakt 1 ausgearbeitet und es hier verlinkt.
