@@ -9,6 +9,7 @@
   - [Artifact](#artifact)
   - [AI Assistance](#ai-assistance)
   - [Lessons Learned](#lessons-learned)
+    - [Changelog](#changelog)
 
 ---
 
@@ -65,3 +66,6 @@ Wir haben gemerkt, dass wir uns als Gruppe noch besser organisieren müssen. Nä
 
 Wir haben gelernt, dass ein Projekt nicht mit dem Tippen von Code anfängt, sondern mit der richtigen Umgebung. Ein gemeinsames Repository auf GitHub aufzusetzen und VS Code einzurichten, war der erste große Meilenstein, um überhaupt professionell als Team arbeiten zu können. Die wichtigste Erkenntnis für unsere Zusammenarbeit: Einfach „drauf los“ zu arbeiten, führt schnell zu Durcheinander. Wir haben gelernt, dass klare Absprachen im Team und eine feste Aufgabenverteilung (wer macht was?) genauso wichtig sind wie die technische Umsetzung selbst.
 
+### Changelog
+v1.0 
+artifact-1-situation-intend erstellt
