@@ -32,7 +32,7 @@ It shows **what was added, why it was added, and how it fits into the larger sys
 
 *`Adapt to your project...`*
 
-**File:** `[Name](Link)`
+**File:** `[artifact-1](artifacts/artifact-1/artifact-1-situation-intent.md)`
 
 **Build:**
 
