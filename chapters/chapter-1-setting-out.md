@@ -68,4 +68,4 @@ Wir haben gelernt, dass ein Projekt nicht mit dem Tippen von Code anfängt, sond
 
 ### Changelog
 v1.0 
-artifact-1-situation-intend erstellt
+chapter-1-setting-out erstellt
