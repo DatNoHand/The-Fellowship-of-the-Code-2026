@@ -12,6 +12,7 @@
   - [Chapters](#chapters)
   - [Key Features of The Fellowship Companion](#key-features-of-the-fellowship-companion)
   - [Changelog](#changelog)
+    - [v1.1](#v11)
     - [v1.0](#v10)
 
 ---
@@ -58,6 +59,9 @@ Allwissendes Nachschlagewerk für Kreaturen, Überlebenstipps, Magie, Tränke un
 
 > This is our general changelog (e.g., new chapter contents added, rules changed, or major system revisions).
   Each chapter has its own detailed changelog for chapter-specific updates.
+
+### v1.1
+Überarbeitet laut Feedback vom Professor
 
 ### v1.0
 
