@@ -1,15 +1,15 @@
-# The Red Book of Westmarch - Chapter X: Title
+# The Red Book of Westmarch - Chapter 1: Setting out
 
-*`LOTR Quote relevant to the assignment or artifact` `"..." - Character`*
+*`All we have to decide is what to do with the time that is given us." — Gandalf`*
 
 **Table of Contents**
 
-- [The Red Book of Westmarch - Chapter X: Title](#the-red-book-of-westmarch---chapter-x-title)
+- [The Red Book of Westmarch - Chapter 1: Setting out](./chapter-1-setting-out.md)
   - [Summary](#summary)
+  - [Learning Outcomes](#learning-outcomes)
   - [Artifact](#artifact)
   - [AI Assistance](#ai-assistance)
   - [Lessons Learned](#lessons-learned)
-    - [Changelog](#changelog)
 
 ---
 
@@ -65,7 +65,3 @@ Wir haben gemerkt, dass wir uns als Gruppe noch besser organisieren müssen. Nä
 ## Lessons Learned
 
 Wir haben gelernt, dass ein Projekt nicht mit dem Tippen von Code anfängt, sondern mit der richtigen Umgebung. Ein gemeinsames Repository auf GitHub aufzusetzen und VS Code einzurichten, war der erste große Meilenstein, um überhaupt professionell als Team arbeiten zu können. Die wichtigste Erkenntnis für unsere Zusammenarbeit: Einfach „drauf los“ zu arbeiten, führt schnell zu Durcheinander. Wir haben gelernt, dass klare Absprachen im Team und eine feste Aufgabenverteilung (wer macht was?) genauso wichtig sind wie die technische Umsetzung selbst.
-
-### Changelog
-v1.0 
-chapter-1-setting-out erstellt
