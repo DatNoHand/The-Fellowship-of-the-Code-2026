@@ -1,0 +1,3 @@
+# Ignorierte Dateien (werden nicht commited)
+.DS_Store
+Thumbs.db
