@@ -1,11 +1,13 @@
-# Artifact 1 - Starting out
+# Artifact 1 - Situation & Intent
 
 ## Situation
 
 Unsere Hobbits sind gerade aufgebrochen auf den Weg nach Bruchtal zu dem Elbenvolk und Elrond.
-Die Gruppe besteht aus Frodo, Samweis, Merry und Pippin.
+Die Gruppe besteht aktuell aus Frodo, Samweis, Gandalf, Merry und Pippin.
 
 Auf dem Weg werden sie von den Nazgul überrascht und retten sich in ein kleines Walddorf. Die Hobbits verfügen weder über militärische Erfahrung noch über geografische Kenntnisse außerhalb des Auenlands. Außerdem fehlt ihnen jegliches Wissen über die spezifischen Fähigkeiten ihrer Verfolger.
+
+Diese Situation wird sich während der Reise verändern und neue Probleme werden auftauchen.
 
 ## Intent
 
@@ -37,8 +39,10 @@ Das Lexikon fungiert als allwissendes Nachschlagewerk: von essbaren Pflanzen üb
 - Überlebenstipps
 - Magie, Tränke, usw..
 - Rezepte
- 
-### Changelog
 
-v1.0
-Dokument erstellt.
+## Assumptions and Constraints
+Die Grundlage des Felloship Companion basiert auf folgenden Annahmen und Einschränkungen:
+
+1. Wir nehmen an, dass alle Anwender dieser App gleichberechtigt sind und ausschließlich mit guten Absichten handeln. In diesem Sinn wird auf ein erweitertes Berechtigungssystem verzichtet.
+2. Die eingegebenen Daten werden mit allen Anwendern geteilt. Private Einträge werden nicht möglich sein.
+3. Die Anwendung braucht eine aktive Internetverbindung damit sie funktioniert.
