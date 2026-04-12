@@ -35,6 +35,7 @@ Das System befähigt die Gruppe, Bedrohungen wie die Nazgul frühzeitig zu erken
 Die Gruppe kann sich eigenständig über unbekannte Kreaturen, essbare Pflanzen, Heilmittel, Rezepte und Überlebensstrategien informieren, um fundierte Entscheidungen in der Wildnis zu treffen.
 
 **Kommunikation**
+Wir ermöglichen der Gruppe die Möglichkeit zur Echtzeitkommunikation
 Die Gruppe wird befähigt, auf mehreren Ebenen zu kommunizieren: Sprachbarrieren mit Elben, Menschen und anderen Völkern überwinden, sich innerhalb der Gruppe über Entfernungen hinweg koordinieren und lebensrettende Informationen austauschen, um Allianzen zu bilden und gemeinsam handlungsfähig zu bleiben.
 
 ## Assumptions and Constraints
@@ -42,9 +43,8 @@ Die Gruppe wird befähigt, auf mehreren Ebenen zu kommunizieren: Sprachbarrieren
 **Assumptions:**
 
 1. Alle Anwender der App sind gleichberechtigt und handeln mit guten Absichten. Es wird daher auf ein erweitertes Berechtigungs- oder Rollensystem verzichtet.
-2. Eingegebene Daten (z.B. Lexikon-Einträge, Kartendaten) werden mit allen Anwendern geteilt. Private Einträge sind nicht vorgesehen.
-3. Die Gruppe ist bereit, die Anwendung aktiv zu nutzen und gepflegte Inhalte (z.B. neue Erkenntnisse über Kreaturen oder Routen) eigenständig einzutragen.
-4. Die Gefahrenerkennung basiert auf bekannten Bedrohungsmustern. Völlig neuartige, unbekannte Gefahren können nicht automatisch erkannt werden.
+2. Eingegebene Daten werden mit allen Anwendern geteilt. Private Einträge sind nicht vorgesehen.
+3. Die Gefahrenerkennung basiert auf bekannten Bedrohungsmustern. Völlig neuartige, unbekannte Gefahren können nicht automatisch erkannt werden.
 
 **Constraints:**
 
