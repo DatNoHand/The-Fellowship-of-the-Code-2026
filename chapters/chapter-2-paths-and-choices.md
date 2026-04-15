@@ -1,10 +1,10 @@
-# The Red Book of Westmarch - Chapter X: Title
+# The Red Book of Westmarch - Chapter 2: Paths & Choises
 
 *`„Es ist eine gefährliche Sache, Frodo, aus deiner Tür hinauszugehen. Du betrittst die Straße, und wenn du nicht auf deine Füße aufpasst, dann weiß man nicht, wohin sie dich tragen.“` `"Bilbo" - Character`*
 
 **Table of Contents**
 
-- [The Red Book of Westmarch - Chapter X: Title](#the-red-book-of-westmarch---chapter-x-title)
+- [The Red Book of Westmarch - Chapter 2: Paths \& Choises](#the-red-book-of-westmarch---chapter-2-paths--choises)
   - [Summary](#summary)
   - [Artifact](#artifact)
   - [AI Assistance](#ai-assistance)
