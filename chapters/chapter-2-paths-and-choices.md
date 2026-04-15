@@ -14,17 +14,16 @@
 
 ## Summary
 
-This chapter focuses on **[one specific requirement or artifact]** of The Fellowship Companion.
-It shows **what was added, why it was added, and how it fits into the larger system**.
+Dieses Kapitel konzentriert sich auf die Konzeptionsphase und das UI-Design des Fellowship Companions.
+Bevor der erste Stein gemauert wurde (Code), mussten wir die Pfade kartografieren und uns in die Köpfe unserer Gefährten begeben. Es zeigt, wie wir durch Flowcharts und Wireframes festgelegt haben, welche Wege ein Nutzer gehen kann und wie die Gefährten-App optisch Gestalt annimmt.
 
 **Learning Outcomes**
 
-- Understand [concept / skill of the phase]
-  Georg: to understand how our feature shall look like and what's the usecase of it
-- Apply [tool / language / logic] to build [artifact]
-  Georg: mermaid.ai, whiteboard teams (creating wireframe), gandalf AI
-- Reflect on AI-assisted development and decision-making
-- Contribute to a **shared, evolving system**
+Georg: Verstehen, wie unser Feature visuell aufgebaut sein soll und welcher konkrete Use-Case dahintersteckt.
+
+Methodik: Anwendung von Mermaid.ai für die Logik,KI inkl. Gandalf AI für Wireframes als strategischer Ratgeber.
+
+Reflexion: Erkenntnis über die enge Verzahnung von Logik (Flowchart) und Interface (Wireframe).
 
 ---
 
