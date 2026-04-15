@@ -21,7 +21,7 @@ Bevor der erste Stein gemauert wurde (Code), mussten wir die Pfade kartografiere
 
 Georg: Verstehen, wie unser Feature visuell aufgebaut sein soll und welcher konkrete Use-Case dahintersteckt.
 
-Methodik: Anwendung von Mermaid.ai für die Logik,KI inkl. Gandalf AI für Wireframes als strategischer Ratgeber.
+Methodik: Anwendung von Mermaid.ai für die Logik; KI inkl. Gandalf AI für die Wireframes und als strategischer Ratgeber.
 
 Reflexion: Erkenntnis über die enge Verzahnung von Logik (Flowchart) und Interface (Wireframe).
 
