@@ -40,6 +40,12 @@ Der Fellowship Companion ist ihr digitaler Weggefährte. Er hilft ihnen, sich si
 
 ---
 
+2. **Chapter II - Paths & Choices**  
+   *"All we have to decide is what to do with the time that is given us." - Gandalf*
+
+   [Go to Chapter II →](chapters/chapter-2-paths-&-choices.md)
+
+--- 
 ## Key Features of The Fellowship Companion
 
 **Karten & GPS-Tracking**
