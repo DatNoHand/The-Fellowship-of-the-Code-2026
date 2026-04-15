@@ -62,6 +62,10 @@ Allwissendes Nachschlagewerk für Kreaturen, Überlebenstipps, Magie, Tränke un
 > This is our general changelog (e.g., new chapter contents added, rules changed, or major system revisions).
   Each chapter has its own detailed changelog for chapter-specific updates.
 
+### v1.2
+
+Chapter 2 hinzugefügt
+
 ### v1.1
 
 Überarbeitet laut Feedback vom Professor
