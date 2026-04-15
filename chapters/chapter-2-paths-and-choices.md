@@ -30,9 +30,8 @@ It shows **what was added, why it was added, and how it fits into the larger sys
 
 ## Artifact
 
-**File:** [Artifact 2](../artifacts/artifact-2/artifact-2-paths-and-choices.md)
+**File:** [Artifact 2](../artifacts/artifact-2/artifact-2-deciding.md)
 
-[Artifact II: Decisions](https://github.com/Hug021030/The-Fellowship-of-the-Code-2026/blob/main/Artifacts/Artifact-2/artifact-2-deciding.md)
 
 **Build:**
 
