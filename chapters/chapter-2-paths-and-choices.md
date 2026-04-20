@@ -34,32 +34,20 @@ Reflexion: Erkenntnis über die enge Verzahnung von Logik (Flowchart) und Interf
 
 **Build:**
 
-... [requirements document / Mermaid flow / wireframe / HTML + CSS page / JavaScript page / low-code extension]
+System-Konzeption (Mermaid Flowchart & KI-generiertes Wireframe)
 
 **Focus:**
 
-... [specific feature of the system / requirement addressed]
+Der Fokus dieses Slices liegt auf der bewussten Entscheidungsfindung des Nutzers in einer feindseligen Umgebung. Es geht nicht nur darum, von Punkt A nach Punkt B zu kommen, sondern die Abwägung zwischen Effizienz (Distanz) und Sicherheit (Gefahrenvermeidung) systemseitig zu unterstützen.
 
 ---
 
 ## AI Assistance
 
-*`Adapt to your project...`*
-
-- What did I expect?
-- What actually happened?
-- How did AI help or mislead me?
-- What decision (changes) did I make consciously?
-- What would I do differently next time?
+Die KI hat uns am Anfang echt eine gute Grundlage geboten, um überhaupt erst mal einen Startpunkt für den Flowchart und das Wireframe zu haben. Ohne die Hilfe hätten wir wahrscheinlich ewig gebraucht, um die Capability in ein logisches Feature zu übersetzen. Aber wir haben schnell gemerkt, dass wir das nicht einfach so stehen lassen konnten: Wir mussten an extrem vielen Stellen unseren eigenen Feinschliff einbauen, weil die KI oft zu kompliziert gedacht hat oder das Design nicht zur Logik passte. Wir haben dann bewusst viele Sachen wieder rausgeworfen oder angepasst, damit jeder Button im Wireframe auch wirklich eine Entsprechung im Flowchart hat. Diese Abstimmung zwischen dem visuellen Entwurf und dem tatsächlichen Ablauf mussten wir am Ende komplett selbst machen, damit das Ganze für unser Projekt auch wirklich Sinn ergibt.
 
 ---
 
 ## Lessons Learned
 
-*`Adapt to your project...`*
-- created flowcharts and wireframe with help of AI
-- lot to doucment before starting the work
-- flowchart and wireframe should align -> every extra button/feature on the wireframe leads to an extra path in the flowchart
-- discuss earlier how our feature shall look like
-  
-- Insights, challenges, reflections
+Die Erstellung von Flowcharts und Wireframes mit KI-Unterstützung war für uns eine extrem steile Lernkurve. Zu Beginn war es ein echter Schock, wie viel man eigentlich dokumentieren und durchdenken muss, noch bevor man überhaupt mit dem eigentlichen Coden anfängt. Die größte Challenge war dabei das Alignment: Wir haben schmerzhaft gelernt, dass Flowchart und Wireframe exakt zusammenpassen müssen – jeder noch so kleine „Extra-Button“, den die KI uns in das Wireframe gebastelt hat, bedeutete sofort einen weiteren Pfad im Flowchart, den wir logisch abdecken mussten. Das hat die Dokumentation schnell aufgebläht. Unsere wichtigste Erkenntnis ist daher, dass man sich im Team viel früher und präziser absprechen muss, wie ein Feature am Ende wirklich aussehen soll. Wir haben gelernt, dass die KI zwar eine super Grundlage liefert, man aber ständig selbst den Feinschliff übernehmen muss, um nicht den Fokus zu verlieren und die Logik konsistent zu halten.
