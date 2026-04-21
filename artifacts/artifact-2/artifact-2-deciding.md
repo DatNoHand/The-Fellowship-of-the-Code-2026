@@ -50,7 +50,7 @@ flowchart TD
 
 ## Wireframe
 
-**File:** ![Wireframe](artifacts/artifact-2/decisions.png)
+**File:** ![Wireframe](./artifacts/artifact-2/decisions.png)
 
 **Unterstützung von Intent & Value**
 Unser Design transformiert den Intent („Unterstützung in einer unbekannten Welt“) in ein geführtes Nutzererlebnis:
