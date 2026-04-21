@@ -46,12 +46,13 @@ flowchart TD
  
     R --> S[Karte zeigt gewählte Route mit Wegpunkten]
     S --> T[Gruppenmitglieder erhalten Routenupdate]
-``` 
+```
+
 ---
 
 ## Wireframe
 
-**File:** ![Wireframe](artifacts/artifact-2/decisions.png)
+**File:** ![Wireframe](src/decisions.png)
 
 - Step 1: Hauptmenü (Selektion) – Große Kacheln ermöglichen eine einfache Auswahl der Grundkategorie (optimiert nach Fitts's Law).
 
