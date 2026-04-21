@@ -11,6 +11,7 @@ Die Gruppe kann auf einer 2.5D-Karte ein Ziel auswählen und erhält daraufhin R
 Diese Capability wurde ausgewählt, weil Navigation & sichere Routenwahl im Kontext der Reise einen großen direkten Einfluss auf das Überleben der Nutzer hat und damit einen signifikanten Vorteil bietet. Gleichzeitig lässt sie sich mit den vorhandenen Annahmen (manuelle Kartendaten, externe Gefahrendaten) sinnvoll umsetzen, ohne zusätzliche komplexe Systeme entwickeln zu müssen. Außerdem bildet sie eine zentrale Grundlage, auf der spätere Capabilities logisch aufbauen können.
 
  **Wieso ist es für die Gemeinschaft, in der aktuellen Situation, von Bedetung?**
+ 
 Zu Beginn der Reise hat die Gemeinschaft noch wenig Erfahrung und keine klare Orientierung in der Umgebung. Diese Capability ist daher sinnvoll, weil sie hilft, sich überhaupt erst zurechtzufinden und ein grundlegendes Verständnis für Wege, Distanzen und Gelände zu entwickeln. Sie schafft somit die Basis für alle weiteren Entscheidungen im Verlauf der Reise.
  
 ## Flow
