@@ -54,18 +54,20 @@ flowchart TD
 
 **Unterstützung von Intent & Value**
 Unser Design transformiert den Intent („Unterstützung in einer unbekannten Welt“) in ein geführtes Nutzererlebnis:
-*Frühzeitige Gefahrenerkennung: Die Geographie-Ansicht (Screen 2) visualisiert Bedrohungen („Gefahren-Eintrag“) explizit mit Zeitstempeln. Dies unterstützt den Value, Bedrohungen zu erkennen, bevor sie lebensgefährlich werden.*
-*Informierte Entscheidung: Der Optionen-Vergleich (Screen 3) bündelt komplexe Umweltdaten (Distanz, Schwierigkeit, Gefahr) in einfache Kategorien. Dies befähigt die unerfahrenen Hobbits, Reisezeiten zu minimieren und optimale Routen selbstständig zu identifizieren.*
-*Sicherheitsbarriere: Die Kategorie-Warnung (Screen 4) stellt sicher, dass riskante Entscheidungen nicht versehentlich getroffen werden. Das unterstützt den zentralen Wert: das Überleben der Gruppe.*
+- Frühzeitige Gefahrenerkennung: Die Geographie-Ansicht (Screen 2) visualisiert Bedrohungen („Gefahren-Eintrag“) explizit mit Zeitstempeln. Dies unterstützt den Value, Bedrohungen zu erkennen, bevor sie lebensgefährlich werden.
+- Informierte Entscheidung: Der Optionen-Vergleich (Screen 3) bündelt komplexe Umweltdaten (Distanz, Schwierigkeit, Gefahr) in einfache Kategorien. Dies befähigt die unerfahrenen Hobbits, Reisezeiten zu minimieren und optimale Routen selbstständig zu identifizieren.
+- Sicherheitsbarriere: Die Kategorie-Warnung (Screen 4) stellt sicher, dass riskante Entscheidungen nicht versehentlich getroffen werden. Das unterstützt den zentralen Wert: das Überleben der Gruppe.
+
 **Bewusste Auslassungen (Deliberate Omissions)**
 Um die kognitive Belastung für die Hobbits gering zu halten, haben wir Folgendes weggelassen:
-*Echtzeit-Tracking von Feinden: Um die Lore-Konsistenz zu wahren, zeigen wir nur „letzte Sichtungen“. Ein Echtzeit-Punkt würde eine falsche Sicherheit suggerieren, die in der Wildnis nicht existiert.*
-*Automatisches Routing: Die App schlägt keine „beste“ Route vor. Die Entscheidungshoheit bleibt bei der Gruppe, um deren Autonomie und Wachsamkeit zu fördern.*
-*Detaillierte Menütiefen: Der Launcher beschränkt sich auf vier Kern-Kategorien, um in Stresssituationen keine Zeit durch Suchen zu verlieren (Hick’s Law).*
+- Echtzeit-Tracking von Feinden: Um die Lore-Konsistenz zu wahren, zeigen wir nur „letzte Sichtungen“. Ein Echtzeit-Punkt würde eine falsche Sicherheit suggerieren, die in der Wildnis nicht existiert.
+- Automatisches Routing: Die App schlägt keine „beste“ Route vor. Die Entscheidungshoheit bleibt bei der Gruppe, um deren Autonomie und Wachsamkeit zu fördern.
+- Detaillierte Menütiefen: Der Launcher beschränkt sich auf vier Kern-Kategorien, um in Stresssituationen keine Zeit durch Suchen zu verlieren (Hick’s Law).
+
 **Annahmen & Constraints (Assumptions & Constraints)**
-*Internet-Abhängigkeit: Das Design zeigt im Hauptmenü (Status B) permanent den Verbindungsstatus an, da eine aktive Internetverbindung für die Datenaktualität zwingend erforderlich ist (Constraint aus Assignment 1).*
-*Manuelle Datenpflege: Wir gehen davon aus, dass die Gruppe „Gefahren-Einträge“ und „Ziel-Einträge“ manuell pflegt oder durch Allianzen erhält, da keine automatische Datenquelle für Mittelerde existiert.*
-*Struktur vor Ästhetik: Das Design nutzt ein klassisches Spalten-Layout im Vergleich und Kacheln im Menü. Dies folgt Jakob’s Law (Nutzer bevorzugen bekannte Strukturen), was die Lernkurve für die Hobbits minimiert.*
+- Internet-Abhängigkeit: Das Design zeigt im Hauptmenü (Status B) permanent den Verbindungsstatus an, da eine aktive Internetverbindung für die Datenaktualität zwingend erforderlich ist (Constraint aus Assignment 1).
+- Manuelle Datenpflege: Wir gehen davon aus, dass die Gruppe „Gefahren-Einträge“ und „Ziel-Einträge“ manuell pflegt oder durch Allianzen erhält, da keine automatische Datenquelle für Mittelerde existiert.
+- Struktur vor Ästhetik: Das Design nutzt ein klassisches Spalten-Layout im Vergleich und Kacheln im Menü. Dies folgt Jakob’s Law (Nutzer bevorzugen bekannte Strukturen), was die Lernkurve für die Hobbits minimiert.*
 
 ### Screen 1: Launcher
 
