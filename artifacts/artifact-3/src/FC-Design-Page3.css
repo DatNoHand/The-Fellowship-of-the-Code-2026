@@ -1,142 +1,162 @@
-/* Grundlegendes Layout */
+/* Globales Web-Styling */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    margin: 0;
-}
-
-main {
-    background-color: white;
-    width: 375px; /* Typische Smartphone-Breite */
-    min-height: 667px;
-    border: 12px solid #333;
-    border-radius: 40px;
-    padding: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-/* Header & Titel */
-header h1 {
-    font-size: 1.2rem;
-    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
     color: #333;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
 }
 
-/* Filter-Sektion */
+/* Container für die gesamte Breite */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Header als Web-Banner */
+header {
+    background-color: #f8f9fa;
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    color: #222;
+}
+
+/* Filter-Bar (Horizontal wie auf einer Website) */
 form {
     display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    margin-bottom: 15px;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
 select {
-    width: 50%;
-    padding: 5px;
-    border-radius: 5px;
+    padding: 10px 15px;
     border: 1px solid #ccc;
-    font-size: 0.8rem;
+    border-radius: 4px;
+    min-width: 200px;
 }
 
-/* Vergleichs-Container */
+/* Vergleichs-Sektion: Großflächiges Grid */
 section[style*="display: flex"] {
-    display: flex !important;
-    gap: 15px;
-    align-items: flex-start;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
 }
 
 article {
-    flex: 1;
-    background: #fafafa;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 10px;
-    text-align: center;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 30px;
+    transition: transform 0.2s;
+}
+
+article:hover {
+    border-color: #007bff;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 article h2 {
-    font-size: 0.9rem;
+    font-size: 1.8rem;
+    color: #007bff;
     margin-top: 0;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #eee;
 }
 
-/* Daten-Punkte */
+/* Content-Blöcke untereinander */
 article section {
-    margin-top: 15px;
-    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 15px 0;
 }
 
 article h3 {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    margin-bottom: 2px;
-    color: #666;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #555;
 }
 
 article p {
-    font-size: 0.8rem;
-    margin: 0;
-    font-weight: bold;
+    font-size: 1.1rem;
+    font-weight: 500;
 }
 
-/* Visualisierung & Progress */
+/* Grafiken & Balken */
 figure img {
     width: 100%;
-    height: auto;
-    border-radius: 4px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
 }
 
 progress {
     width: 100%;
-    height: 12px;
-    appearance: none;
+    height: 20px;
+    accent-color: #007bff;
 }
 
-progress::-webkit-progress-bar {
-    background-color: #eee;
-    border-radius: 6px;
-}
-
-progress::-webkit-progress-value {
-    background-color: #4A90E2;
-    border-radius: 6px;
-}
-
-/* Footer & Buttons */
+/* Web-Footer & Call-to-Action */
 footer {
-    margin-top: 30px;
+    margin-top: 60px;
+    padding: 40px;
+    background: #222;
+    color: #fff;
+    border-radius: 12px;
     text-align: center;
-}
-
-footer p {
-    font-size: 0.7rem;
-    color: #888;
 }
 
 nav {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
 }
 
 button {
-    padding: 10px;
-    border-radius: 20px;
-    border: none;
-    background-color: #333;
-    color: white;
-    font-weight: bold;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    transition: 0.3s;
 }
 
-button:last-child {
-    background-color: #eee;
-    color: #333;
+button:first-of-type {
+    background-color: #007bff;
+    color: white;
+}
+
+button:last-of-type {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Responsive für Tablets/Mobile */
+@media (max-width: 768px) {
+    section[style*="display: flex"] {
+        grid-template-columns: 1fr;
+    }
+    
+    form {
+        flex-direction: column;
+    }
 }
