@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Optionen-Vergleich - Mockup</title>
+</head>
+<body>
+
+    <header>
+        <h1>Optionen-Vergleich</h1>
+    </header>
+
+    <main>
+        <!-- Filter- und Sortierbereich oben -->
+        <section>
+            <form>
+                <label for="sortierung">Sortieren nach...</label>
+                <select id="sortierung" name="sortierung">
+                    <option value="distanz">Distanz</option>
+                    <option value="schwierigkeit">Schwierigkeit</option>
+                </select>
+
+                <label for="option-filter">Filter:</label>
+                <select id="option-filter" name="option-filter">
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                </select>
+            </form>
+        </section>
+
+        <hr>
+
+        <!-- Vergleich der zwei Menü-Einträge -->
+        <section style="display: flex; justify-content: space-between;">
+            
+            <!-- Linke Spalte: Menü-Eintrag 1 -->
+            <article>
+                <h2>Menü-Eintrag 1</h2>
+                
+                <!-- Platzhalter für die Grafik/Balken -->
+                <figure>
+                    <img src="https://via.placeholder.com/100x50?text=Grafik+1" alt="Visualisierung Option 1">
+                </figure>
+
+                <section>
+                    <h3>DISTANZ</h3>
+                    <p>(Dauer)</p>
+                </section>
+
+                <section>
+                    <h3>Schwierigkeit</h3>
+                    <p>(Grad)</p>
+                </section>
+
+                <section>
+                    <h3>Gefahren-Eintrag</h3>
+                    <p>(Bewertung)</p>
+                    <!-- Fortschrittsbalken als Ersatz für die Skizze -->
+                    <progress value="70" max="100"></progress>
+                </section>
+            </article>
+
+            <!-- Rechte Spalte: Menü-Eintrag 2 -->
+            <article>
+                <h2>Menü-Eintrag 2</h2>
+
+                <!-- Platzhalter für die Grafik/Balken -->
+                <figure>
+                    <img src="https://via.placeholder.com/100x50?text=Grafik+2" alt="Visualisierung Option 2">
+                </figure>
+
+                <section>
+                    <h3>DISTANZ</h3>
+                    <p>(Dauer)</p>
+                </section>
+
+                <section>
+                    <h3>Schwierigkeit</h3>
+                    <p>(Grad)</p>
+                </section>
+
+                <section>
+                    <h3>Gefahren-Eintrag</h3>
+                    <p>(Bewertung)</p>
+                    <progress value="40" max="100"></progress>
+                </section>
+            </article>
+
+        </section>
+
+        <hr>
+
+        <!-- Fußbereich / Navigationshilfe -->
+        <footer>
+            <p><em>Spezifischer Daten-Eintrag zur Wahl-Unterstützung</em></p>
+            <nav>
+                <button type="button">Zurück zur Geographie-Ansicht</button>
+                <button type="button">Details anzeigen</button>
+            </nav>
+        </footer>
+
+    </main>
+
+</body>
+</html>
