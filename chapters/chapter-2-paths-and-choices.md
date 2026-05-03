@@ -19,7 +19,7 @@ Bevor der erste Stein gemauert wurde (Code), mussten wir die Pfade kartografiere
 
 **Learning Outcomes**
 
-Georg: Verstehen, wie unser Feature visuell aufgebaut sein soll und welcher konkrete Use-Case dahintersteckt.
+Planung: Verstehen, wie unser Feature visuell aufgebaut sein soll und welcher konkrete Use-Case dahintersteckt.
 
 Methodik: Anwendung von Mermaid.ai für die Logik; KI inkl. Gandalf AI für die Wireframes und als strategischer Ratgeber.
 
@@ -31,13 +31,9 @@ Reflexion: Erkenntnis über die enge Verzahnung von Logik (Flowchart) und Interf
 
 **File:** [Artifact 2](../artifacts/artifact-2/artifact-2-deciding.md)
 
-
-**Build:**
-
 System-Konzeption (Mermaid Flowchart & KI-generiertes Wireframe)
 
 **Focus:**
-
 Der Fokus dieses Slices liegt auf der bewussten Entscheidungsfindung des Nutzers in einer feindseligen Umgebung. Es geht nicht nur darum, von Punkt A nach Punkt B zu kommen, sondern die Abwägung zwischen Effizienz (Distanz) und Sicherheit (Gefahrenvermeidung) systemseitig zu unterstützen.
 
 ---

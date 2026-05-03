@@ -8,9 +8,12 @@ Die Gruppe kann auf einer 2.5D-Karte ein Ziel auswählen und erhält daraufhin R
 
 **Warum dieses Feature?**
 
-TODO
+Diese Capability wurde ausgewählt, weil Navigation & sichere Routenwahl im Kontext der Reise einen großen direkten Einfluss auf das Überleben der Nutzer hat und damit einen signifikanten Vorteil bietet. Gleichzeitig lässt sie sich mit den vorhandenen Annahmen (manuelle Kartendaten, externe Gefahrendaten) sinnvoll umsetzen, ohne zusätzliche komplexe Systeme entwickeln zu müssen. Außerdem bildet sie eine zentrale Grundlage, auf der spätere Capabilities logisch aufbauen können.
 
-
+ **Wieso ist es für die Gemeinschaft, in der aktuellen Situation, von Bedeutung?**
+ 
+Zu Beginn der Reise hat die Gemeinschaft noch wenig Erfahrung und keine klare Orientierung in der Umgebung. Diese Capability ist daher sinnvoll, weil sie hilft, sich überhaupt erst zurechtzufinden und ein grundlegendes Verständnis für Wege, Distanzen und Gelände zu entwickeln. Sie schafft somit die Basis für alle weiteren Entscheidungen im Verlauf der Reise.
+ 
 ## Flow
 
 ```mermaid
@@ -45,16 +48,21 @@ flowchart TD
  
     R --> S[Karte zeigt gewählte Route mit Wegpunkten]
     S --> T[Gruppenmitglieder erhalten Routenupdate]
-``` 
+```
+
 ---
 
 ## Wireframe
 
-[Wireframe](src/decisions.png)
+**File:** ![Wireframe](src/decisions.png)
 
-**Beschreibung der Screens:**
+- Step 1: Hauptmenü (Selektion) – Große Kacheln ermöglichen eine einfache Auswahl der Grundkategorie (optimiert nach Fitts's Law).
 
-TODO!
+- Step 2: Geographie-Ansicht (Orientierung) – Eine isometrische Karte zeigt die räumliche Lage von Nutzern, Zielen und Gefahren.
+
+- Step 3: Optionen-Vergleich (Analyse) – Zwei konkrete Wege oder Optionen werden anhand von Daten wie Distanz, Schwierigkeit und Risiko direkt gegenübergestellt.
+
+- Step 4: Kategorie-Warnung (Absicherung) – Ein Pop-up dient als Sicherheitscheck bei Hochrisiko-Entscheidungen („Rückfrage-Schritt“), bevor die Aktion final bestätigt wird.
 
 ### Screen 1: Launcher
 
