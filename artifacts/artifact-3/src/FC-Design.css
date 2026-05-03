@@ -1,92 +1,97 @@
-/* Grundlegendes Styling für das Smartphone-Gehäuse */
-.phone-container {
-    width: 300px;
-    height: 600px;
-    background: white;
-    border: 12px solid #222;
-    border-radius: 40px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    margin: 20px auto;
-    font-family: sans-serif;
-    position: relative;
+/* Grundlegendes Layout */
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f7fa;
+    color: #333;
 }
 
-/* Statusbar oben */
-.status-bar {
+/* Navigationsleiste */
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 1rem 10%;
     display: flex;
     justify-content: space-between;
-    font-size: 12px;
-    font-weight: bold;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Das Grid für die 4 Kategorien */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+/* Hero-Bereich (Großes Banner) */
+.hero {
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+/* Container für die Inhalte */
+.container {
+    max-width: 1200px;
+    margin: -50px auto 50px; /* Schiebt die Karten ein Stück ins Banner */
+    padding: 0 20px;
+}
+
+/* Das Grid (3 Spalten auf Desktop) */
 .category-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 2 Spalten */
-    grid-template-rows: 1fr 1fr;    /* 2 Zeilen */
-    gap: 15px;
-    flex-grow: 1;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
-/* Einzelne Kachel */
-.category-card {
-    border: 2px solid #333;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    padding: 10px;
+/* Card Design */
+.web-card {
+    background: white;
+    border-radius: 15px;
+    padding: 40px 20px;
     text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    border: 1px solid #e1e4e8;
 }
 
-/* Die aktive/ausgewählte Kachel (wie Kategorie B im Bild) */
-.category-card.active {
-    background-color: #d1d1d1;
-    border-width: 4px;
+.web-card:hover {
+    transform: translateY(-10px);
 }
 
-/* Icon Platzhalter */
-.icon-placeholder {
-    width: 60px;
-    height: 60px;
-    background: #f0f0f0;
-    border: 1px dashed #999;
+/* Highlight für Kategorie B */
+.web-card.featured {
+    border: 2px solid #3498db;
+    box-shadow: 0 15px 30px rgba(52, 152, 219, 0.2);
+}
+
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    background: #f0f4f8;
+    border-radius: 50%;
+    margin: 0 auto 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 10px;
-    color: #666;
+    font-size: 24px;
+    color: #3498db;
+    font-weight: bold;
 }
 
-/* Home Button unten im Gehäuse */
-.home-button {
-    width: 40px;
-    height: 40px;
-    border: 2px solid #555;
-    border-radius: 50%;
-    margin: 20px auto 0;
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
 }
 
-/* Beschriftungen unter dem Telefon */
-.phone-footer {
-    text-align: center;
-    margin-top: 15px;
-}
-
-.phone-footer h2 {
-    margin: 5px 0;
-    font-size: 18px;
-}
-
-.annotation {
-    color: #666;
-    font-style: italic;
-    font-size: 14px;
+.btn:hover {
+    background-color: #2980b9;
 }
