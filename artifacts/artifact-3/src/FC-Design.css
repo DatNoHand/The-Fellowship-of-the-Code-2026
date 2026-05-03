@@ -1,75 +1,151 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fellowship Companion</title>
-    <link rel="stylesheet" href="FC-Design.css">
-    <!-- Einbindung einer passenden Schriftart -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-</head>
-<body>
+/* Grund-Setup */
+:root {
+    --bg-color: #f4f1ea;       /* Helles Pergament */
+    --card-bg: #ffffff;
+    --primary: #2c3e50;        /* Schieferblau */
+    --accent: #b8860b;         /* Gold-Akzent */
+    --text-color: #333;
+    --active-bg: #e0e0e0;      /* Wie im Mockup (Kategorie B) */
+    --shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
 
-    <main class="web-container">
-        
-        <!-- Die obere Statusleiste des Mockups als Top-Nav -->
-        <nav class="status-bar">
-            <div class="brand">
-                <span class="app-title">Fellowship Companion</span>
-            </div>
-            <div class="status-items">
-                <span class="status-item">Status A</span>
-                <span class="status-item">Status B</span>
-            </div>
-        </nav>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        <header class="main-header">
-            <h1>Hauptmenü</h1>
-        </header>
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
 
-        <!-- Das Grid aus Mockup 1 -->
-        <section class="category-grid">
-            
-            <article class="category-card">
-                <header>Maps</header>
-                <div class="icon-placeholder">
-                    <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
-                </div>
-                <footer>Middleearth Maps</footer>
-            </article>
+.web-container {
+    width: 100%;
+    max-width: 900px; /* Begrenzung für bessere Lesbarkeit am Desktop */
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
 
-            <!-- Kategorie B - Aktiv laut Mockup -->
-            <article class="category-card active">
-                <header>Kategorie B</header>
-                <div class="icon-placeholder">
-                    <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                </div>
-                <footer>Menü-Option 2</footer>
-            </article>
+/* Status-Bar (Mockup oben) */
+.status-bar {
+    background-color: var(--primary);
+    color: white;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
 
-            <article class="category-card">
-                <header>Kategorie C</header>
-                <div class="icon-placeholder">
-                    <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor"><path d="M18 17H6v-2h12v2zm0-4H6v-2h12v2zm0-4H6V7h12v2z"/></svg>
-                </div>
-                <footer>Menü-Option 3</footer>
-            </article>
+.app-title {
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    color: var(--accent);
+}
 
-            <article class="category-card">
-                <header>Kategorie D</header>
-                <div class="icon-placeholder">
-                    <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor"><path d="M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21z"/></svg>
-                </div>
-                <footer>Menü-Option 4</footer>
-            </article>
+.status-items .status-item {
+    margin-left: 15px;
+    opacity: 0.8;
+}
 
-        </section>
+/* Header */
+.main-header {
+    text-align: center;
+    padding: 40px 20px;
+}
 
-        <footer class="page-footer">
-            <p class="annotation">Optimiert nach Fitt's Law für maximale Klickbarkeit</p>
-        </footer>
+.main-header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    color: var(--primary);
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+    padding-bottom: 10px;
+}
 
-    </main>
+/* Kategorie-Grid */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 Spalten wie im Mockup */
+    gap: 25px;
+    padding: 0 40px 40px 40px;
+}
 
-</body>
-</html>
+/* Karten-Design (Fitt's Law: Große Klickflächen) */
+.category-card {
+    background: var(--card-bg);
+    border: 2px solid #ddd;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 220px;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border-color: var(--accent);
+}
+
+/* Highlight für Kategorie B laut Mockup */
+.category-card.active {
+    background-color: var(--active-bg);
+    border-color: var(--primary);
+}
+
+.category-card header {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.icon-placeholder {
+    margin: 20px 0;
+    color: var(--primary);
+}
+
+.category-card footer {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Footer */
+.page-footer {
+    text-align: center;
+    padding: 20px;
+    background: #f9f9f9;
+    border-top: 1px solid #eee;
+}
+
+.annotation {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* Responsive Anpassung für schmale Bildschirme */
+@media (max-width: 600px) {
+    .category-grid {
+        grid-template-columns: 1fr; /* Stapeln auf dem Handy */
+        padding: 20px;
+    }
+    
+    .main-header h1 {
+        font-size: 1.8rem;
+    }
+}
