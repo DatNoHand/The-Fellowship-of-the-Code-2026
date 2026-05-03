@@ -1,0 +1,116 @@
+/* Grund-Layout für das Smartphone-Display */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin: 0;
+}
+
+main {
+    width: 360px; /* Typische Breite eines Phones */
+    height: 640px;
+    background-color: white;
+    border: 12px solid #333;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Header & Navigation */
+header {
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+header span {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* Der Karten-Container (Platzhalter für spätere Map-Integration) */
+#karte-container {
+    flex-grow: 1;
+    background-color: #e5e5e5; /* Neutraler Hintergrund */
+    background-image: 
+        linear-gradient(rgba(200,200,200,.5) 1px, transparent 1px),
+        linear-gradient(90px, rgba(200,200,200,.5) 1px, transparent 1px);
+    background-size: 40px 40px; /* Simuliert den Geographie-Stil (Pixel/Raster) */
+    position: relative;
+    padding: 10px;
+}
+
+#karte-container h2 {
+    font-size: 0.9rem;
+    color: #888;
+    text-align: center;
+}
+
+/* Styling der Ankerpunkte (Icons/Personen auf der Karte) */
+.map-point {
+    position: absolute;
+    background: white;
+    border: 2px solid #333;
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 0.7rem;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Beispielhafte Positionierung der Elemente aus der Skizze */
+.map-point:nth-of-type(1) { top: 20%; left: 15%; } /* Benutzer-Anker */
+.map-point:nth-of-type(2) { top: 35%; right: 15%; } /* Mitglieds-Anker */
+.map-point:nth-of-type(3) { bottom: 30%; left: 10%; border-color: red; } /* Gefahren-Eintrag */
+.map-point:nth-of-type(4) { bottom: 15%; right: 10%; background: #d4edda; } /* Ziel-Eintrag */
+
+/* Die gestrichelte Linie (Pfad) */
+hr {
+    position: absolute;
+    top: 45%;
+    left: 20%;
+    width: 60%;
+    border: 0;
+    border-top: 2px dashed #555;
+    transform: rotate(15deg);
+    opacity: 0.5;
+}
+
+/* Footer & Buttons */
+footer {
+    padding: 15px;
+    background: white;
+    border-top: 1px solid #ddd;
+    text-align: center;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 2px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+form button {
+    width: 100%;
+    background-color: #28a745;
+    margin-top: 10px;
+}
