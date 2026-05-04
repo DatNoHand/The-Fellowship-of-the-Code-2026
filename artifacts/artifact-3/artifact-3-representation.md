@@ -2,7 +2,7 @@
 
 ## System Capability
 
-**Navigation & Orientierung**
+**Navigation und Orientierung**
 
 Die Gruppe kann auf einer 2.5D-Karte ein Ziel auswählen und erhält daraufhin Routenvorschläge, die anhand von Distanz, Geländeschwierigkeit und zuletzt bekannten Gefahrenpositionen (z.B. Nazgûl-Sichtungen) bewertet werden. Der Nutzer entscheidet sich für eine Route und die Gruppe wird entlang dieser navigiert.
 
