@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Geographie-Ansicht</title>
+
+    <link rel="stylesheet" href="FC-Design-Page2.css">
+</head>
+<body>
+
+    <!-- Header-Bereich der App -->
+    <header>
+        <nav>
+            <button type="button">Zurück</button>
+            <h1>Geographie-Ansicht</h1>
+            <span>(Karten-Stil)</span>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Die Karte als zentrales Element -->
+        <section id="karte-container">
+            <h2>Karten-Bereich (Pixel-Stil)</h2>
+            
+            <!-- Platzhalter für die interaktiven Elemente auf der Karte -->
+            <div id="map-canvas">
+                
+                <!-- Benutzer-Standort -->
+                <div class="map-point">
+                    <strong>Benutzer-Anker</strong>
+                </div>
+
+                <!-- Verbindungslinie / Pfad -->
+                <hr title="Geplanter Pfad">
+
+                <!-- Andere Mitglieder -->
+                <div class="map-point">
+                    <strong>Mitglieds-Anker</strong>
+                </div>
+
+                <!-- Gefahrenstelle -->
+                <div class="map-point">
+                    <strong>Gefahren-Eintrag</strong>
+                    <p>(Letzte Sichtung)</p>
+                </div>
+
+                <!-- Das Ziel -->
+                <div class="map-point">
+                    <strong>Ziel-Eintrag</strong>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Navigation / Aktionen am unteren Bildschirmrand -->
+        <footer>
+            <button type="button">Zoom In</button>
+            <button type="button">Zoom Out</button>
+            <button type="button">Zentrieren</button>
+            
+            <br><br>
+            
+            <!-- Weiterleitung zur nächsten Ansicht (Optionen-Vergleich) -->
+            <form action="seite3_optionen.html">
+                <button type="submit">Weiter zum Optionen-Vergleich</button>
+            </form>
+        </footer>
+    </main>
+
+</body>
+</html>

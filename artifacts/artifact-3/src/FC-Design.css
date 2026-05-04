@@ -1,97 +1,151 @@
-/* Grundlegendes Layout */
-body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f7fa;
-    color: #333;
+/* Grund-Setup */
+:root {
+    --bg-color: #f4f1ea;       /* Helles Pergament */
+    --card-bg: #ffffff;
+    --primary: #2c3e50;        /* Schieferblau */
+    --accent: #b8860b;         /* Gold-Akzent */
+    --text-color: #333;
+    --active-bg: #e0e0e0;      /* Wie im Mockup (Kategorie B) */
+    --shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-/* Navigationsleiste */
-header {
-    background-color: #2c3e50;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.web-container {
+    width: 100%;
+    max-width: 900px; /* Begrenzung für bessere Lesbarkeit am Desktop */
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+/* Status-Bar (Mockup oben) */
+.status-bar {
+    background-color: var(--primary);
     color: white;
-    padding: 1rem 10%;
+    padding: 15px 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 30px;
+.app-title {
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    color: var(--accent);
 }
 
-/* Hero-Bereich (Großes Banner) */
-.hero {
-    background: linear-gradient(135deg, #3498db, #2c3e50);
-    color: white;
+.status-items .status-item {
+    margin-left: 15px;
+    opacity: 0.8;
+}
+
+/* Header */
+.main-header {
     text-align: center;
-    padding: 80px 20px;
+    padding: 40px 20px;
 }
 
-/* Container für die Inhalte */
-.container {
-    max-width: 1200px;
-    margin: -50px auto 50px; /* Schiebt die Karten ein Stück ins Banner */
-    padding: 0 20px;
+.main-header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    color: var(--primary);
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+    padding-bottom: 10px;
 }
 
-/* Das Grid (3 Spalten auf Desktop) */
+/* Kategorie-Grid */
 .category-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(2, 1fr); /* 2 Spalten wie im Mockup */
+    gap: 25px;
+    padding: 0 40px 40px 40px;
 }
 
-/* Card Design */
-.web-card {
-    background: white;
+/* Karten-Design (Fitt's Law: Große Klickflächen) */
+.category-card {
+    background: var(--card-bg);
+    border: 2px solid #ddd;
     border-radius: 15px;
-    padding: 40px 20px;
+    padding: 30px;
     text-align: center;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
-    border: 1px solid #e1e4e8;
-}
-
-.web-card:hover {
-    transform: translateY(-10px);
-}
-
-/* Highlight für Kategorie B */
-.web-card.featured {
-    border: 2px solid #3498db;
-    box-shadow: 0 15px 30px rgba(52, 152, 219, 0.2);
-}
-
-.icon-circle {
-    width: 80px;
-    height: 80px;
-    background: #f0f4f8;
-    border-radius: 50%;
-    margin: 0 auto 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    color: #3498db;
-    font-weight: bold;
+    justify-content: space-between;
+    min-height: 220px;
 }
 
-.btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 30px;
-    background-color: #3498db;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border-color: var(--accent);
 }
 
-.btn:hover {
-    background-color: #2980b9;
+/* Highlight für Kategorie B laut Mockup */
+.category-card.active {
+    background-color: var(--active-bg);
+    border-color: var(--primary);
+}
+
+.category-card header {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.icon-placeholder {
+    margin: 20px 0;
+    color: var(--primary);
+}
+
+.category-card footer {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Footer */
+.page-footer {
+    text-align: center;
+    padding: 20px;
+    background: #f9f9f9;
+    border-top: 1px solid #eee;
+}
+
+.annotation {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* Responsive Anpassung für schmale Bildschirme */
+@media (max-width: 600px) {
+    .category-grid {
+        grid-template-columns: 1fr; /* Stapeln auf dem Handy */
+        padding: 20px;
+    }
+    
+    .main-header h1 {
+        font-size: 1.8rem;
+    }
 }
