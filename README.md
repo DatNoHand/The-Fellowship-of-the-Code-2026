@@ -62,6 +62,10 @@ Allwissendes Nachschlagewerk für Kreaturen, Überlebenstipps, Magie, Tränke un
 > This is our general changelog (e.g., new chapter contents added, rules changed, or major system revisions).
   Each chapter has its own detailed changelog for chapter-specific updates.
 
+### v1.3 artifact 3 
+
+Wir habne chapter 3 erstellt und alle Aufgaben synchronisch abgearbeitet nach langer Diskussion mit sehr viel Herzblut und Energie. 
+
 ### v1.2
 
 Chapter 2 hinzugefügt
@@ -73,3 +77,5 @@ Chapter 2 hinzugefügt
 ### v1.0
 
 Wir haben das Github Repository erstellt, das Konzept zum Companion in Artefakt 1 ausgearbeitet und es hier verlinkt.
+
+
