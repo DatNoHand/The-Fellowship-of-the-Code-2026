@@ -64,7 +64,7 @@ Allwissendes Nachschlagewerk für Kreaturen, Überlebenstipps, Magie, Tränke un
 
 ### v1.3 artifact 3 
 
-Wir habne chapter 3 erstellt und alle Aufgaben synchronisch abgearbeitet nach langer Diskussion mit sehr viel Herzblut und Energie. 
+Wir haben chapter 3 erstellt und alle Aufgaben synchronisch abgearbeitet nach langer Diskussion mit sehr viel Herzblut und Energie. Diese Aufgabe war sehr wichtig und sehr ernst zu nehmen. Als 1. war es wichtig das Fundament richtig zu stellen.
 
 ### v1.2
 
