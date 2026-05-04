@@ -8,7 +8,7 @@ Die Gruppe kann auf einer 2.5D-Karte ein Ziel auswählen und erhält daraufhin R
 
 **Warum dieses Feature?**
 
-TODO
+Das Feature wurde gewählt um der Gruppe eine Form von Sicherheit zu geben. Eine Navigationshilfe ist in der aktuellen Situation sehr hilfreich und der erste Schritt um ans Ziel zu kommen. 
 
 
 ## Flow
