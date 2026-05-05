@@ -16,7 +16,7 @@ Gerade in einer unsicheren Umgebung wie Mittelerde — Nazgûl auf den Fersen, u
 
 ## Statische Interface Implementation
 
-Link zu der Seite: [src/interface.html](src/interface.html)
+Link zu der Seite: [src/interface.html](src/Fellowship-Companion.html)
 
 ---
 
