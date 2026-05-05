@@ -7,83 +7,6 @@
   <link rel="stylesheet" href="FC-Design.css">
   <style>
     .app-shell { height: 100svh; }
-
-    .route-list { padding-bottom: 24px; }
-
-    .destination-strip {
-      background: var(--surface-2);
-      border-bottom: 1px solid var(--border);
-      padding: 12px 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-shrink: 0;
-    }
-    .dest-from, .dest-to {
-      font-size: 0.78rem;
-      color: var(--text-dim);
-    }
-    .dest-from strong, .dest-to strong {
-      color: var(--text);
-      font-weight: 700;
-    }
-    .dest-arrow {
-      color: var(--gold-dim);
-      font-size: 0.9rem;
-      flex-shrink: 0;
-    }
-    .dest-count {
-      margin-left: auto;
-      font-size: 0.65rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      white-space: nowrap;
-    }
-
-    /* mini map strip */
-    .mini-map-strip {
-      height: 90px;
-      background: #0d1a0a;
-      flex-shrink: 0;
-      position: relative;
-      overflow: hidden;
-      border-bottom: 1px solid var(--border);
-    }
-    .mini-map-strip svg {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      inset: 0;
-    }
-    .route-highlight {
-      transition: stroke 0.3s ease, opacity 0.3s ease;
-    }
-
-    /* highlighted route label inside mini map */
-    .mini-route-label {
-      position: absolute;
-      bottom: 8px;
-      right: 12px;
-      font-size: 0.65rem;
-      color: var(--text-dim);
-      font-style: italic;
-      pointer-events: none;
-    }
-
-    .recommended-tag {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.65rem;
-      color: #5ec994;
-      font-style: italic;
-      margin-top: 6px;
-    }
-    .recommended-tag::before {
-      content: '✦';
-      font-style: normal;
-    }
   </style>
 </head>
 <body>
@@ -95,179 +18,112 @@
   </div>
 
   <div class="page-header fade-in">
-    <a href="page2-map.html" class="back-btn" aria-label="Zurück zur Karte">←</a>
+    <a href="Fellowship-Companion-Page2.html" class="back-btn" aria-label="Zurück zur Karte">←</a>
     <div>
       <div class="page-title">Routenvergleich</div>
-      <div class="page-sub">Wähle deinen Weg mit Bedacht</div>
+      <div class="page-sub">Ziel: Bree — 3 Routen verfügbar</div>
     </div>
   </div>
 
-  <!-- Destination strip -->
-  <div class="destination-strip fade-in fade-in-1">
-    <div class="dest-from"><strong>Buckland</strong></div>
-    <span class="dest-arrow">⟶</span>
-    <div class="dest-to"><strong>Bree</strong></div>
-    <div class="dest-count">3 Routen</div>
+  <div class="sort-bar">
+    <button class="sort-btn active" data-sort="danger">Gefahr ↑</button>
+    <button class="sort-btn" data-sort="distance">Distanz</button>
+    <button class="sort-btn" data-sort="terrain">Schwierigkeit</button>
   </div>
 
-  <!-- Mini map preview -->
-  <div class="mini-map-strip fade-in fade-in-1">
-    <svg viewBox="0 0 430 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-      <rect width="430" height="90" fill="#0d1a0a"/>
-      <!-- grid -->
-      <g stroke="#1e3018" stroke-width="0.5" opacity="0.4">
-        <line x1="0" y1="30" x2="430" y2="50"/>
-        <line x1="0" y1="60" x2="430" y2="80"/>
-        <line x1="100" y1="0" x2="90" y2="90"/>
-        <line x1="215" y1="0" x2="205" y2="90"/>
-        <line x1="330" y1="0" x2="320" y2="90"/>
-      </g>
-      <!-- Route A - Waldpfad (safe, green) -->
-      <path id="routeA-line" class="route-highlight"
-            d="M 80 78 Q 90 55 115 45 Q 140 35 165 28 Q 185 22 215 20"
-            stroke="#2d6a4f" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.9"/>
-      <!-- Route B - Oststraße (medium) -->
-      <path id="routeB-line" class="route-highlight"
-            d="M 80 78 Q 100 65 140 60 Q 180 55 215 20"
-            stroke="#b87a10" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.6" stroke-dasharray="8 5"/>
-      <!-- Route C - Hochmoor (danger) -->
-      <path id="routeC-line" class="route-highlight"
-            d="M 80 78 Q 120 80 170 75 Q 210 70 250 55 Q 280 40 215 20"
-            stroke="#c0352a" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.5" stroke-dasharray="6 5"/>
-      <!-- Buckland dot -->
-      <circle cx="80" cy="78" r="6" fill="#2a4a2a" stroke="#4a7a4a" stroke-width="1.5"/>
-      <!-- Bree dot -->
-      <circle cx="215" cy="20" r="6" fill="#1a2a10" stroke="#2d6a4f" stroke-width="1.5"/>
-      <!-- Nazgul markers -->
-      <circle cx="185" cy="58" r="5" fill="#c0352a" opacity="0.7"/>
-      <circle cx="225" cy="48" r="4" fill="#c0352a" opacity="0.5"/>
-    </svg>
-    <div class="mini-route-label">Karte: Buckland → Bree</div>
-  </div>
+  <div class="route-list">
 
-  <!-- Sort bar -->
-  <div class="sort-bar fade-in fade-in-2">
-    <button class="sort-btn active" onclick="setSort(this,'gefahr')">⚔ Nach Gefahr</button>
-    <button class="sort-btn" onclick="setSort(this,'distanz')">📍 Distanz</button>
-    <button class="sort-btn" onclick="setSort(this,'schwierigkeit')">⛰ Schwierigkeit</button>
-  </div>
-
-  <!-- Route list -->
-  <div class="route-list" id="routeList">
-
-    <!-- Route 1: Waldpfad (recommended, safe) -->
-    <div class="route-card recommended fade-in fade-in-2" onclick="selectRoute('A')">
+    <!-- Route 1: Empfohlen — niedrige Gefahr -->
+    <a href="Fellowship-Companion-Page2.html" class="route-card recommended fade-in fade-in-1">
       <div class="route-card-header">
-        <div>
-          <div class="route-name">Waldpfad</div>
-          <div class="recommended-tag">Empfohlen · Sicherste Route</div>
-        </div>
-        <div class="route-badge safe">Niedrig</div>
+        <span class="route-name">Grüne Auen Straße</span>
+        <span class="route-badge safe">Empfohlen</span>
       </div>
       <div class="route-stats">
         <div class="stat-box">
-          <span class="stat-value">2,5</span>
-          <span class="stat-label">Tagesreisen</span>
-        </div>
-        <div class="stat-box">
-          <span class="stat-value">Mittel</span>
-          <span class="stat-label">Gelände</span>
-          <div class="danger-bar-wrap" style="margin-top:5px;">
-            <div style="height:100%;width:50%;background:var(--warn);border-radius:3px;"></div>
-          </div>
-        </div>
-        <div class="stat-box">
-          <span class="stat-value" style="color:#5ec994;">Niedrig</span>
-          <span class="stat-label">Gefahr</span>
-          <div class="danger-bar-wrap"><div class="danger-bar low"></div></div>
-        </div>
-      </div>
-      <div class="route-desc">
-        Durch den Alten Wald nördlich der Oststraße. Waldpfade bieten Deckung vor Reitern.
-        Vorsicht beim Weidenteich — Mythen über den Alten Weidenmann kursierten zuletzt.
-      </div>
-    </div>
-
-    <!-- Route 2: Oststraße (medium) -->
-    <div class="route-card medium-risk fade-in fade-in-3" onclick="selectRoute('B')">
-      <div class="route-card-header">
-        <div>
-          <div class="route-name">Oststraße</div>
-        </div>
-        <div class="route-badge medium">Mittel</div>
-      </div>
-      <div class="route-stats">
-        <div class="stat-box">
-          <span class="stat-value">1,5</span>
+          <span class="stat-value">8</span>
           <span class="stat-label">Tagesreisen</span>
         </div>
         <div class="stat-box">
           <span class="stat-value">Leicht</span>
           <span class="stat-label">Gelände</span>
-          <div class="danger-bar-wrap" style="margin-top:5px;">
-            <div style="height:100%;width:22%;background:var(--safe);border-radius:3px;"></div>
-          </div>
         </div>
         <div class="stat-box">
-          <span class="stat-value" style="color:#e8a830;">Mittel</span>
+          <span class="stat-value" style="color:var(--safe)">Niedrig</span>
           <span class="stat-label">Gefahr</span>
-          <div class="danger-bar-wrap"><div class="danger-bar medium"></div></div>
+          <div class="danger-bar-wrap"><div class="danger-bar low"></div></div>
         </div>
       </div>
-      <div class="route-desc">
-        Kürzeste Verbindung — gepflasterter Königsweg. Zuletzt wurden 2 schwarze Reiter
-        auf dieser Strecke gesichtet (vor ~2h). Expo­nierte Lage tagsüber.
-      </div>
-    </div>
+      <p class="route-desc">
+        Bekannter Weg nördlich durch Bree-Land. Nazgûl zuletzt vor 6 Tagen
+        auf dieser Strecke gesehen — aktuell weitgehend sicher.
+      </p>
+    </a>
 
-    <!-- Route 3: Hochmoor (danger) -->
-    <div class="route-card high-risk fade-in fade-in-4" onclick="goToWarning()">
+    <!-- Route 2: Hohe Gefahr — führt zur Warnung auf Page 4 -->
+    <a href="Fellowship-Companion-Page4.html" class="route-card high-risk fade-in fade-in-2">
       <div class="route-card-header">
-        <div>
-          <div class="route-name">Hochmoor-Umweg</div>
-        </div>
-        <div class="route-badge danger">Hoch</div>
+        <span class="route-name">Durch das Nebelmoor</span>
+        <span class="route-badge danger">Hohe Gefahr</span>
       </div>
       <div class="route-stats">
         <div class="stat-box">
-          <span class="stat-value">4,0</span>
+          <span class="stat-value">5</span>
           <span class="stat-label">Tagesreisen</span>
         </div>
         <div class="stat-box">
           <span class="stat-value">Schwer</span>
           <span class="stat-label">Gelände</span>
-          <div class="danger-bar-wrap" style="margin-top:5px;">
-            <div style="height:100%;width:85%;background:var(--danger);border-radius:3px;"></div>
-          </div>
         </div>
         <div class="stat-box">
-          <span class="stat-value" style="color:#e06060;">Hoch</span>
+          <span class="stat-value" style="color:var(--danger)">Hoch</span>
           <span class="stat-label">Gefahr</span>
           <div class="danger-bar-wrap"><div class="danger-bar high"></div></div>
         </div>
       </div>
-      <div class="route-desc">
-        Führt durch das Hochmoor südlich der Bree-Hügel. Nazgûl-Aktivität in diesem
-        Gebiet bestätigt. Kein bekannter sicherer Rastplatz auf der gesamten Strecke.
+      <p class="route-desc">
+        Kürzeste Route — jedoch 2 Nazgûl-Sichtungen in den letzten 2 Stunden.
+        Sumpfgelände verlangsamt den Marsch erheblich.
+      </p>
+    </a>
+
+    <!-- Route 3: Niedrige Gefahr — langer Umweg -->
+    <a href="Fellowship-Companion-Page2.html" class="route-card fade-in fade-in-3">
+      <div class="route-card-header">
+        <span class="route-name">Über die Südhügel</span>
+        <span class="route-badge medium">Mittel</span>
       </div>
-    </div>
+      <div class="route-stats">
+        <div class="stat-box">
+          <span class="stat-value">11</span>
+          <span class="stat-label">Tagesreisen</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-value">Mittel</span>
+          <span class="stat-label">Gelände</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-value" style="color:var(--safe)">Niedrig</span>
+          <span class="stat-label">Gefahr</span>
+          <div class="danger-bar-wrap"><div class="danger-bar low"></div></div>
+        </div>
+      </div>
+      <p class="route-desc">
+        Längste Option, aber bislang keine feindlichen Sichtungen.
+        Welliges Hügelland — für die gesamte Gruppe passierbar.
+      </p>
+    </a>
 
   </div>
 
 </div>
-
 <script>
-  function setSort(btn, mode) {
-    document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    // visual feedback only in this static prototype
-  }
-  function selectRoute(id) {
-    window.location.href = 'page2-map.html';
-  }
-  function goToWarning() {
-    window.location.href = 'page4-warning.html';
-  }
+  document.querySelectorAll('.sort-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
 </script>
 </body>
 </html>

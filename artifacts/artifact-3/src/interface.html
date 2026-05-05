@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fellowship Companion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=IM+Fell+English:ital@0;1&family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-frame">
+
+  <!-- ═══════════════════════════════
+       SCREEN 1 — LAUNCHER
+  ═══════════════════════════════ -->
+  <section id="s1" class="screen is-active" aria-label="Hauptmenü">
+
+    <div class="status-bar">
+      <span>9. Blumenmonat, S.Z. 3018</span>
+      <span class="status-threat">⚠ Bedrohung nahe</span>
+    </div>
+
+    <header class="app-header">
+      <span class="app-emblem">⚔</span>
+      <h1>Fellowship Companion</h1>
+      <p class="app-subtitle">Dein Wegbegleiter durch Mittelerde</p>
+    </header>
+
+    <main class="modules-section">
+      <p class="section-label">Module</p>
+      <div class="module-grid">
+
+        <button class="module-card active" onclick="go('s2')">
+          <span class="module-icon">🗺</span>
+          <span class="module-name">Karte &amp;<br>Navigation</span>
+          <span class="module-desc">Route nach Bree</span>
+          <span class="module-arrow">→</span>
+        </button>
+
+        <div class="module-card locked" aria-disabled="true">
+          <span class="module-icon">👁</span>
+          <span class="module-name">Gefahren&shy;erkennung</span>
+          <span class="lock-tag">Bald verfügbar</span>
+        </div>
+
+        <div class="module-card locked" aria-disabled="true">
+          <span class="module-icon">📜</span>
+          <span class="module-name">Gruppen&shy;koordination</span>
+          <span class="lock-tag">Bald verfügbar</span>
+        </div>
+
+        <div class="module-card locked" aria-disabled="true">
+          <span class="module-icon">📖</span>
+          <span class="module-name">Lexikon</span>
+          <span class="lock-tag">Bald verfügbar</span>
+        </div>
+
+      </div>
+    </main>
+
+    <footer class="lore-footer">
+      <p class="lore-quote">"Nicht alle, die umherwandern, sind verloren."</p>
+      <p class="lore-author">— Bilbo Beutlin</p>
+    </footer>
+
+  </section>
+
+
+  <!-- ═══════════════════════════════
+       SCREEN 2 — KARTENANSICHT
+  ═══════════════════════════════ -->
+  <section id="s2" class="screen" aria-label="Kartenansicht">
+
+    <div class="status-bar">
+      <span>9. Blumenmonat, S.Z. 3018</span>
+      <span class="status-threat">⚠ Bedrohung nahe</span>
+    </div>
+
+    <div class="page-header">
+      <button class="back-btn" onclick="back()" aria-label="Zurück zum Hauptmenü">←</button>
+      <div>
+        <div class="page-title">Karte &amp; Navigation</div>
+        <div class="page-sub">Tippe auf ein Ziel, um Routen zu berechnen</div>
+      </div>
+    </div>
+
+    <div class="map-container">
+      <svg class="map-svg" viewBox="0 0 430 360" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-label="Isometrische Karte von Mittelerde">
+        <defs>
+          <linearGradient id="horizonFade" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%"  stop-color="#0d1a0a" stop-opacity="0.8"/>
+            <stop offset="40%" stop-color="#0d1a0a" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Base terrain -->
+        <rect width="430" height="360" fill="#0d1a0a"/>
+
+        <!-- Forest zones -->
+        <ellipse cx="60"  cy="80"  rx="55" ry="45" fill="#0f2010" opacity="0.9"/>
+        <ellipse cx="340" cy="60"  rx="65" ry="40" fill="#0f2010" opacity="0.8"/>
+        <ellipse cx="30"  cy="240" rx="40" ry="60" fill="#0f2010" opacity="0.7"/>
+        <ellipse cx="400" cy="280" rx="45" ry="50" fill="#0a1808" opacity="0.9"/>
+        <rect x="100" y="150" width="230" height="80" rx="40" fill="#111f0e" opacity="0.6"/>
+
+        <!-- Isometric ground grid -->
+        <g stroke="#1e3018" stroke-width="0.6" opacity="0.5">
+          <line x1="0"   y1="100" x2="430" y2="140"/>
+          <line x1="0"   y1="150" x2="430" y2="190"/>
+          <line x1="0"   y1="200" x2="430" y2="240"/>
+          <line x1="0"   y1="250" x2="430" y2="290"/>
+          <line x1="0"   y1="300" x2="430" y2="340"/>
+          <line x1="80"  y1="0"   x2="60"  y2="360"/>
+          <line x1="145" y1="0"   x2="125" y2="360"/>
+          <line x1="215" y1="0"   x2="195" y2="360"/>
+          <line x1="285" y1="0"   x2="265" y2="360"/>
+          <line x1="355" y1="0"   x2="335" y2="360"/>
+        </g>
+
+        <!-- Road / path -->
+        <path d="M 215 360 Q 210 280 200 230 Q 195 210 200 190 Q 210 160 215 130 Q 218 110 210 80"
+              stroke="#3d5c2a" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.7"/>
+        <path d="M 215 360 Q 210 280 200 230 Q 195 210 200 190 Q 210 160 215 130 Q 218 110 210 80"
+              stroke="#5a8040" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="12 6" opacity="0.5"/>
+
+        <!-- Trees — left forest -->
+        <g fill="#1e3a15" opacity="0.9">
+          <polygon points="42,50 50,30 58,50"/><rect x="48" y="50" width="5" height="8" fill="#2d1a08"/>
+          <polygon points="28,65 36,48 44,65"/><rect x="34" y="65" width="4" height="7" fill="#2d1a08"/>
+          <polygon points="58,70 66,52 74,70"/><rect x="64" y="70" width="4" height="7" fill="#2d1a08"/>
+          <polygon points="18,45 26,28 34,45"/><rect x="24" y="45" width="4" height="7" fill="#2d1a08"/>
+          <polygon points="72,48 80,30 88,48"/><rect x="78" y="48" width="4" height="7" fill="#2d1a08"/>
+        </g>
+
+        <!-- Trees — right forest -->
+        <g fill="#1a3510" opacity="0.85">
+          <polygon points="302,35 310,16 318,35"/><rect x="308" y="35" width="4" height="7" fill="#2d1a08"/>
+          <polygon points="320,48 328,30 336,48"/><rect x="326" y="48" width="4" height="7" fill="#2d1a08"/>
+          <polygon points="340,30 348,12 356,30"/><rect x="346" y="30" width="4" height="7" fill="#2d1a08"/>
+          <polygon points="358,52 366,34 374,52"/><rect x="364" y="52" width="4" height="7" fill="#2d1a08"/>
+        </g>
+
+        <!-- River -->
+        <path d="M 320 0 Q 310 60 290 100 Q 275 130 280 180"
+              stroke="#1a3a5c" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.6"/>
+        <path d="M 320 0 Q 310 60 290 100 Q 275 130 280 180"
+              stroke="#2a5a8c" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.4"/>
+
+        <!-- Buckland (start, dimmed) -->
+        <circle cx="200" cy="320" r="10" fill="#2a4a2a" stroke="#4a7a4a" stroke-width="1.5"/>
+        <text x="200" y="346" fill="#5a8050" font-size="9" font-family="Cinzel,Georgia,serif" text-anchor="middle" letter-spacing="0.5px">BUCKLAND</text>
+
+        <!-- Gefährten -->
+        <circle cx="210" cy="290" r="8" fill="#1e3a5c" stroke="#3a6a9c" stroke-width="1.5"/>
+        <text x="210" y="294" fill="#7ab0e0" font-size="7" font-family="Cinzel,serif" text-anchor="middle" font-weight="600">S</text>
+        <text x="210" y="307" fill="#3a6a9c" font-size="8" font-family="Lato,sans-serif" text-anchor="middle" font-style="italic">Samweis</text>
+
+        <circle cx="188" cy="300" r="8" fill="#1e3a5c" stroke="#3a6a9c" stroke-width="1.5"/>
+        <text x="188" y="304" fill="#7ab0e0" font-size="7" font-family="Cinzel,serif" text-anchor="middle" font-weight="600">M</text>
+
+        <circle cx="218" cy="308" r="8" fill="#1e3a5c" stroke="#3a6a9c" stroke-width="1.5"/>
+        <text x="218" y="312" fill="#7ab0e0" font-size="7" font-family="Cinzel,serif" text-anchor="middle" font-weight="600">P</text>
+
+        <!-- Frodo (Nutzer) — pulsing gold marker -->
+        <circle class="user-pulse" cx="200" cy="270" r="18" fill="none" stroke="#c8952a" stroke-width="2"/>
+        <circle cx="200" cy="270" r="12" fill="#2a1e08" stroke="#c8952a" stroke-width="2"/>
+        <circle cx="200" cy="270" r="5" fill="#f0c060"/>
+        <text x="200" y="255" fill="#f0c060" font-size="8" font-family="Cinzel,serif" text-anchor="middle" font-weight="600" letter-spacing="0.5px">FRODO</text>
+
+        <!-- Nazgûl-Sichtungen — blinkende rote Zonen -->
+        <circle class="danger-blink" cx="155" cy="200" r="20" fill="#3a0a0a" stroke="#8b1a1a" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <circle cx="155" cy="200" r="6" fill="#c0352a" opacity="0.9"/>
+        <text x="155" y="183" fill="#c0352a" font-size="7" font-family="Lato,sans-serif" text-anchor="middle" font-style="italic">vor 2h</text>
+
+        <circle class="danger-blink" cx="240" cy="180" r="16" fill="#3a0a0a" stroke="#8b1a1a" stroke-width="1.5" stroke-dasharray="4 3" style="animation-delay:0.9s"/>
+        <circle cx="240" cy="180" r="5" fill="#c0352a" opacity="0.8"/>
+        <text x="240" y="164" fill="#c0352a" font-size="7" font-family="Lato,sans-serif" text-anchor="middle" font-style="italic">vor 5h</text>
+
+        <!-- Ziel: Bree -->
+        <rect x="195" y="72" width="50" height="26" rx="4" fill="#1a2a10" stroke="#2d6a4f" stroke-width="1.5"/>
+        <text x="220" y="89" fill="#5ec994" font-size="9" font-family="Cinzel,serif" text-anchor="middle" font-weight="600" letter-spacing="0.8px">BREE</text>
+        <line x1="186" y1="60" x2="186" y2="82" stroke="#2d6a4f" stroke-width="1.5"/>
+        <polygon points="186,60 196,65 186,70" fill="#2d6a4f"/>
+
+        <!-- Atmospheric horizon fade -->
+        <rect width="430" height="80" fill="url(#horizonFade)"/>
+      </svg>
+
+      <!-- Overlays -->
+      <div class="map-overlay-top">
+        <div class="map-badge">
+          <strong>Buckland</strong><br>
+          <span style="font-size:0.62rem">Aktueller Standort</span>
+        </div>
+        <div class="map-legend">
+          <div class="legend-row"><div class="legend-dot user"></div> Du (Frodo)</div>
+          <div class="legend-row"><div class="legend-dot member"></div> Gefährten</div>
+          <div class="legend-row"><div class="legend-dot danger"></div> Nazgûl-Sichtung</div>
+          <div class="legend-row"><div class="legend-dot target"></div> Ziel</div>
+        </div>
+      </div>
+
+      <div class="map-tap-hint">Tippe auf einen Punkt auf der Karte</div>
+    </div>
+
+    <div class="nazgul-alert">
+      <div class="nazgul-icon">👁</div>
+      <div class="nazgul-text">
+        <strong>Nazgûl gesichtet</strong>
+        <span>2 Reiter — Oststraße, zuletzt vor ~2 Stunden</span>
+      </div>
+    </div>
+
+    <div class="map-action-bar">
+      <button class="map-cta" onclick="go('s3')">
+        <div>
+          <div class="map-cta-label">Routen berechnen</div>
+          <div class="map-cta-sub">Ziel: Bree — 3 Routen verfügbar</div>
+        </div>
+        <span class="map-cta-arrow">→</span>
+      </button>
+    </div>
+
+  </section>
+
+
+  <!-- ═══════════════════════════════
+       SCREEN 3 — ROUTENVERGLEICH
+  ═══════════════════════════════ -->
+  <section id="s3" class="screen" aria-label="Routenvergleich">
+
+    <div class="status-bar">
+      <span>9. Blumenmonat, S.Z. 3018</span>
+      <span class="status-threat">⚠ Bedrohung nahe</span>
+    </div>
+
+    <div class="page-header">
+      <button class="back-btn" onclick="back()" aria-label="Zurück zur Karte">←</button>
+      <div>
+        <div class="page-title">Routenvergleich</div>
+        <div class="page-sub">Ziel: Bree — 3 Routen verfügbar</div>
+      </div>
+    </div>
+
+    <div class="sort-bar" role="group" aria-label="Sortierung">
+      <button class="sort-btn active" onclick="setSort(this)">Gefahr ↑</button>
+      <button class="sort-btn" onclick="setSort(this)">Distanz</button>
+      <button class="sort-btn" onclick="setSort(this)">Schwierigkeit</button>
+    </div>
+
+    <div class="route-list">
+
+      <!-- Route 1: Empfohlen, niedrige Gefahr -->
+      <button class="route-card recommended fade-in fade-in-1" onclick="go('s2')">
+        <div class="route-card-header">
+          <span class="route-name">Grüne Auen Straße</span>
+          <span class="route-badge safe">Empfohlen</span>
+        </div>
+        <div class="route-stats">
+          <div class="stat-box">
+            <span class="stat-value">8</span>
+            <span class="stat-label">Tagesreisen</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-value">Leicht</span>
+            <span class="stat-label">Gelände</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-value safe-text">Niedrig</span>
+            <span class="stat-label">Gefahr</span>
+            <div class="danger-bar-wrap"><div class="danger-bar low"></div></div>
+          </div>
+        </div>
+        <p class="route-desc">Bekannter Weg nördlich durch Bree-Land. Nazgûl zuletzt vor 6 Tagen gesehen — aktuell weitgehend sicher.</p>
+      </button>
+
+      <!-- Route 2: Hohe Gefahr → Warnung auf Screen 4 -->
+      <button class="route-card high-risk fade-in fade-in-2" onclick="go('s4')">
+        <div class="route-card-header">
+          <span class="route-name">Durch das Nebelmoor</span>
+          <span class="route-badge danger">Hohe Gefahr</span>
+        </div>
+        <div class="route-stats">
+          <div class="stat-box">
+            <span class="stat-value">5</span>
+            <span class="stat-label">Tagesreisen</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-value">Schwer</span>
+            <span class="stat-label">Gelände</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-value danger-text">Hoch</span>
+            <span class="stat-label">Gefahr</span>
+            <div class="danger-bar-wrap"><div class="danger-bar high"></div></div>
+          </div>
+        </div>
+        <p class="route-desc">Kürzeste Route — jedoch 2 Nazgûl-Sichtungen in den letzten 2 Stunden. Sumpfgelände verlangsamt den Marsch erheblich.</p>
+      </button>
+
+      <!-- Route 3: Niedrige Gefahr, langer Umweg -->
+      <button class="route-card fade-in fade-in-3" onclick="go('s2')">
+        <div class="route-card-header">
+          <span class="route-name">Über die Südhügel</span>
+          <span class="route-badge medium">Mittel</span>
+        </div>
+        <div class="route-stats">
+          <div class="stat-box">
+            <span class="stat-value">11</span>
+            <span class="stat-label">Tagesreisen</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-value">Mittel</span>
+            <span class="stat-label">Gelände</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-value safe-text">Niedrig</span>
+            <span class="stat-label">Gefahr</span>
+            <div class="danger-bar-wrap"><div class="danger-bar low"></div></div>
+          </div>
+        </div>
+        <p class="route-desc">Längste Option, aber bislang keine feindlichen Sichtungen. Welliges Hügelland — für die ganze Gruppe passierbar.</p>
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- ═══════════════════════════════
+       SCREEN 4 — GEFAHREN-WARNUNG
+  ═══════════════════════════════ -->
+  <section id="s4" class="screen" aria-label="Gefahren-Warnung">
+
+    <div class="status-bar">
+      <span>9. Blumenmonat, S.Z. 3018</span>
+      <span class="status-threat">⚠ Bedrohung nahe</span>
+    </div>
+
+    <div class="warning-backdrop">
+
+      <!-- Dimmed echo of Screen 3 -->
+      <div class="blurred-bg"></div>
+      <div class="bg-route-preview" aria-hidden="true">
+        <div class="route-card recommended" style="pointer-events:none">
+          <div class="route-card-header">
+            <span class="route-name">Grüne Auen Straße</span>
+            <span class="route-badge safe">Empfohlen</span>
+          </div>
+        </div>
+        <div class="route-card high-risk" style="pointer-events:none">
+          <div class="route-card-header">
+            <span class="route-name">Durch das Nebelmoor</span>
+            <span class="route-badge danger">Hohe Gefahr</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Warning bottom sheet -->
+      <div class="warning-sheet" role="alertdialog" aria-modal="true" aria-labelledby="warn-title">
+
+        <div class="warning-icon-wrap">
+          <div class="warning-icon" aria-hidden="true">⚠</div>
+        </div>
+
+        <div class="warning-title" id="warn-title">Hohe Gefahr — Route bestätigen?</div>
+        <div class="warning-subtitle">
+          Frodo, diese Route führt durch das Nebelmoor.<br>
+          Willst du sie trotz aktiver Bedrohungen nehmen?
+        </div>
+
+        <div class="danger-details">
+          <div class="danger-detail-row">
+            <span class="detail-icon">👁</span>
+            <span class="detail-text"><strong>2 Nazgûl-Sichtungen</strong> auf dieser Route in den letzten 2 Stunden</span>
+          </div>
+          <div class="danger-detail-row">
+            <span class="detail-icon">🕐</span>
+            <span class="detail-text">Zuletzt gesichtet <strong>vor 1 Stunde</strong> nahe Wetterspitze — Richtung Süden</span>
+          </div>
+          <div class="danger-detail-row">
+            <span class="detail-icon">🌫</span>
+            <span class="detail-text">Sumpf &amp; Moorgelände — kein schneller Rückzug möglich</span>
+          </div>
+        </div>
+
+        <div class="warning-actions">
+          <button class="btn-cancel" onclick="back()">← Andere Route</button>
+          <button class="btn-confirm" onclick="go('s2')">Trotzdem nehmen</button>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+</div><!-- /.app-frame -->
+
+
+<script>
+  /* ── Screen Navigation ── */
+  const stack = ['s1'];
+
+  function go(id) {
+    const from = document.querySelector('.screen.is-active');
+    const to   = document.getElementById(id);
+    if (!to || from === to) return;
+    from.classList.remove('is-active');
+    from.classList.add('is-behind');
+    to.classList.remove('is-behind');
+    to.classList.add('is-active');
+    stack.push(id);
+  }
+
+  function back() {
+    if (stack.length <= 1) return;
+    stack.pop();
+    const from = document.querySelector('.screen.is-active');
+    const to   = document.getElementById(stack[stack.length - 1]);
+    from.classList.remove('is-active');
+    to.classList.remove('is-behind');
+    to.classList.add('is-active');
+  }
+
+  /* ── Sort tabs (visual only) ── */
+  function setSort(btn) {
+    btn.closest('.sort-bar')
+       .querySelectorAll('.sort-btn')
+       .forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+</script>
+
+</body>
+</html>

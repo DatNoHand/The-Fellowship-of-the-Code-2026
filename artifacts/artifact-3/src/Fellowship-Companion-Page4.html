@@ -3,247 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fellowship Companion – Hochrisiko-Warnung</title>
+  <title>Fellowship Companion – Gefahren-Warnung</title>
   <link rel="stylesheet" href="FC-Design.css">
   <style>
     .app-shell { height: 100svh; }
-
-    /* faded route cards in background */
-    .bg-preview {
-      position: absolute;
-      inset: 0;
-      padding: 16px 18px;
-      opacity: 0.18;
-      pointer-events: none;
-      overflow: hidden;
-    }
-    .bg-preview .route-card {
-      cursor: default;
-      margin-bottom: 10px;
-      font-size: 0.7rem;
-    }
-
-    /* red vignette overlay on bg */
-    .danger-vignette {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 50% 100%, rgba(192,53,42,0.25) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .warning-backdrop {
-      flex: 1;
-      position: relative;
-      background: var(--surface-2);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      overflow: hidden;
-      min-height: 0;
-    }
-
-    .warning-sheet {
-      position: relative;
-      z-index: 10;
-      background: var(--surface);
-      border-top: 2px solid var(--danger);
-      border-radius: 24px 24px 0 0;
-      padding: 26px 22px 36px;
-      box-shadow: 0 -16px 60px rgba(192,53,42,0.28);
-      animation: slideUp 0.4s cubic-bezier(0.32,0.72,0,1) both;
-    }
-    @keyframes slideUp {
-      from { transform: translateY(100%); opacity:0; }
-      to   { transform: translateY(0);    opacity:1; }
-    }
-
-    .sheet-handle {
-      width: 36px;
-      height: 4px;
-      background: var(--border-bright);
-      border-radius: 2px;
-      margin: 0 auto 18px;
-    }
-
-    .warning-icon-wrap {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 14px;
-    }
-    .warning-icon {
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      background: var(--danger-soft);
-      border: 2px solid var(--danger);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.6rem;
-      box-shadow: 0 0 32px rgba(192,53,42,0.35);
-      animation: iconPulse 2.2s ease-in-out infinite;
-    }
-    @keyframes iconPulse {
-      0%,100% { box-shadow: 0 0 32px rgba(192,53,42,0.35); }
-      50%      { box-shadow: 0 0 52px rgba(192,53,42,0.55); }
-    }
-
-    .warning-title {
-      font-family: 'Cinzel', serif;
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #e06060;
-      text-align: center;
-      letter-spacing: 1px;
-      margin-bottom: 5px;
-    }
-    .warning-subtitle {
-      font-family: 'IM Fell English', Georgia, serif;
-      font-style: italic;
-      font-size: 0.8rem;
-      color: var(--text-dim);
-      text-align: center;
-      margin-bottom: 18px;
-      line-height: 1.55;
-    }
-    .selected-route-label {
-      font-size: 0.68rem;
-      color: var(--text-muted);
-      text-align: center;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      margin-bottom: 4px;
-    }
-    .selected-route-name {
-      font-family: 'Cinzel', serif;
-      font-size: 0.9rem;
-      color: #e06060;
-      text-align: center;
-      margin-bottom: 16px;
-      font-weight: 600;
-    }
-
-    .danger-details {
-      background: rgba(192,53,42,0.1);
-      border: 1px solid var(--danger);
-      border-radius: 12px;
-      padding: 14px 16px;
-      margin-bottom: 20px;
-    }
-    .danger-detail-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 7px 0;
-      border-bottom: 1px solid rgba(192,53,42,0.2);
-    }
-    .danger-detail-row:last-child { border-bottom: none; padding-bottom: 0; }
-    .danger-detail-row:first-child { padding-top: 0; }
-    .detail-icon { font-size: 0.9rem; flex-shrink: 0; margin-top: 1px; }
-    .detail-text {
-      font-size: 0.74rem;
-      color: var(--text);
-      line-height: 1.5;
-    }
-    .detail-text strong { color: #e08080; font-weight: 700; }
-
-    .warning-actions {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-    .btn-cancel {
-      background: var(--surface-2);
-      border: 1.5px solid var(--border-b);
-      border-radius: 12px;
-      padding: 15px 10px;
-      font-family: 'Cinzel', serif;
-      font-size: 0.75rem;
-      color: var(--text-dim);
-      cursor: pointer;
-      letter-spacing: 0.8px;
-      transition: background 0.15s, border-color 0.15s;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      text-align: center;
-    }
-    .btn-cancel:hover {
-      background: var(--surface-3);
-      border-color: var(--border-bright);
-      color: var(--text);
-    }
-    .btn-confirm {
-      background: rgba(192,53,42,0.12);
-      border: 1.5px solid var(--danger);
-      border-radius: 12px;
-      padding: 15px 10px;
-      font-family: 'Cinzel', serif;
-      font-size: 0.75rem;
-      color: #e06060;
-      cursor: pointer;
-      letter-spacing: 0.8px;
-      transition: background 0.15s;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      text-align: center;
-    }
-    .btn-confirm:hover { background: rgba(192,53,42,0.22); }
-    .btn-confirm:active { transform: scale(0.97); }
-
-    /* Confirmed state */
-    .confirmed-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(11,8,4,0.92);
-      z-index: 100;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      padding: 32px;
-      text-align: center;
-    }
-    .confirmed-overlay.visible { display: flex; }
-    .confirmed-icon { font-size: 3rem; margin-bottom: 8px; }
-    .confirmed-title {
-      font-family: 'Cinzel', serif;
-      font-size: 1.1rem;
-      color: var(--gold);
-      letter-spacing: 1.5px;
-      font-weight: 700;
-    }
-    .confirmed-text {
-      font-family: 'IM Fell English', Georgia, serif;
-      font-style: italic;
-      font-size: 0.85rem;
-      color: var(--text-dim);
-      line-height: 1.6;
-      max-width: 300px;
-    }
-    .confirmed-btn {
-      margin-top: 8px;
-      background: var(--surface-3);
-      border: 1.5px solid var(--gold);
-      border-radius: 12px;
-      padding: 14px 32px;
-      font-family: 'Cinzel', serif;
-      font-size: 0.8rem;
-      color: var(--gold);
-      cursor: pointer;
-      letter-spacing: 1px;
-      text-decoration: none;
-      display: inline-block;
-      transition: background 0.15s;
-    }
-    .confirmed-btn:hover { background: var(--surface-4); }
   </style>
 </head>
 <body>
@@ -254,119 +17,84 @@
     <span class="status-threat">⚠ Bedrohung nahe</span>
   </div>
 
-  <div class="page-header fade-in">
-    <a href="page3-routes.html" class="back-btn" aria-label="Zurück">←</a>
-    <div>
-      <div class="page-title">Hochrisiko-Warnung</div>
-      <div class="page-sub">Bestätigung erforderlich</div>
-    </div>
-  </div>
-
-  <!-- Dimmed route list in background -->
+  <!-- Dimmed backdrop — faint echo of the route list behind the modal -->
   <div class="warning-backdrop">
-    <div class="bg-preview" aria-hidden="true">
+
+    <div class="blurred-bg"></div>
+
+    <div class="bg-route-preview" aria-hidden="true">
+      <!-- Route 1 ghost -->
       <div class="route-card recommended" style="pointer-events:none;">
         <div class="route-card-header">
-          <div class="route-name">Waldpfad</div>
-          <div class="route-badge safe">Niedrig</div>
+          <span class="route-name">Grüne Auen Straße</span>
+          <span class="route-badge safe">Empfohlen</span>
         </div>
         <div class="route-stats">
-          <div class="stat-box"><span class="stat-value">2,5</span><span class="stat-label">Tagesreisen</span></div>
-          <div class="stat-box"><span class="stat-value">Mittel</span><span class="stat-label">Gelände</span></div>
-          <div class="stat-box"><span class="stat-value" style="color:#5ec994;">Niedrig</span><span class="stat-label">Gefahr</span></div>
+          <div class="stat-box"><span class="stat-value">8</span><span class="stat-label">Tagesreisen</span></div>
+          <div class="stat-box"><span class="stat-value">Leicht</span><span class="stat-label">Gelände</span></div>
+          <div class="stat-box"><span class="stat-value" style="color:var(--safe)">Niedrig</span><span class="stat-label">Gefahr</span><div class="danger-bar-wrap"><div class="danger-bar low"></div></div></div>
         </div>
       </div>
-      <div class="route-card medium-risk" style="pointer-events:none;">
+      <!-- Route 2 ghost (highlighted — this is the selected route) -->
+      <div class="route-card high-risk" style="pointer-events:none;">
         <div class="route-card-header">
-          <div class="route-name">Oststraße</div>
-          <div class="route-badge medium">Mittel</div>
+          <span class="route-name">Durch das Nebelmoor</span>
+          <span class="route-badge danger">Hohe Gefahr</span>
         </div>
         <div class="route-stats">
-          <div class="stat-box"><span class="stat-value">1,5</span><span class="stat-label">Tagesreisen</span></div>
-          <div class="stat-box"><span class="stat-value">Leicht</span><span class="stat-label">Gelände</span></div>
-          <div class="stat-box"><span class="stat-value" style="color:#e8a830;">Mittel</span><span class="stat-label">Gefahr</span></div>
+          <div class="stat-box"><span class="stat-value">5</span><span class="stat-label">Tagesreisen</span></div>
+          <div class="stat-box"><span class="stat-value">Schwer</span><span class="stat-label">Gelände</span></div>
+          <div class="stat-box"><span class="stat-value" style="color:var(--danger)">Hoch</span><span class="stat-label">Gefahr</span><div class="danger-bar-wrap"><div class="danger-bar high"></div></div></div>
         </div>
       </div>
     </div>
 
-    <div class="danger-vignette"></div>
-
-    <!-- Warning Sheet -->
-    <div class="warning-sheet">
-      <div class="sheet-handle"></div>
+    <!-- Warning bottom sheet — slides up over the backdrop -->
+    <div class="warning-sheet" role="dialog" aria-modal="true" aria-labelledby="warning-title">
 
       <div class="warning-icon-wrap">
-        <div class="warning-icon">⚠️</div>
+        <div class="warning-icon">⚠</div>
       </div>
 
-      <div class="warning-title">Hochrisiko — Route</div>
+      <div class="warning-title" id="warning-title">Hohe Gefahr — Route bestätigen?</div>
       <div class="warning-subtitle">
-        "Die Nacht ist dunkel, und Böses lauert in Mooren.<br>
-        Diese Wahl könnte die Fellowship gefährden."
+        Frodo, diese Route führt durch das Nebelmoor.<br>
+        Willst du sie trotz aktiver Bedrohungen nehmen?
       </div>
-
-      <div class="selected-route-label">Gewählte Route</div>
-      <div class="selected-route-name">Hochmoor-Umweg</div>
 
       <div class="danger-details">
         <div class="danger-detail-row">
-          <span class="detail-icon">🗡</span>
-          <div class="detail-text">
-            <strong>Nazgûl-Aktivität bestätigt</strong> — 2 schwarze Reiter wurden
-            auf der Moorstrecke vor weniger als 6 Stunden gesichtet.
-          </div>
+          <span class="detail-icon">👁</span>
+          <span class="detail-text">
+            <strong>2 Nazgûl-Sichtungen</strong> auf dieser Route in den letzten 2 Stunden
+          </span>
+        </div>
+        <div class="danger-detail-row">
+          <span class="detail-icon">🕐</span>
+          <span class="detail-text">
+            Zuletzt gesichtet <strong>vor 1 Stunde</strong> nahe Wetterspitze — Richtung Süden
+          </span>
         </div>
         <div class="danger-detail-row">
           <span class="detail-icon">🌫</span>
-          <div class="detail-text">
-            <strong>Keine Deckung</strong> — Das Hochmoor bietet keinerlei
-            Versteckmöglichkeiten. Die Gruppe ist bei Annäherung vollständig exponiert.
-          </div>
-        </div>
-        <div class="danger-detail-row">
-          <span class="detail-icon">🏕</span>
-          <div class="detail-text">
-            <strong>Kein sicherer Rastplatz</strong> — Auf 4 Tagesreisen ist kein
-            bekannter Unterschlupf vorhanden. Übernachtung im Freien unausweichlich.
-          </div>
-        </div>
-        <div class="danger-detail-row">
-          <span class="detail-icon">⛰</span>
-          <div class="detail-text">
-            <strong>Schwieriges Gelände</strong> — Moorige Abschnitte verlangsamen
-            das Tempo erheblich. Gesamtdauer: ~4 Tagesreisen statt 1,5.
-          </div>
+          <span class="detail-text">
+            Sumpf &amp; Moorgelände — verlangsamt den Marsch, kein schneller Rückzug möglich
+          </span>
         </div>
       </div>
 
       <div class="warning-actions">
-        <a href="page3-routes.html" class="btn-cancel">
-          ← Zurück zu den Routen
+        <a href="Fellowship-Companion-Page3.html" class="btn-cancel">
+          ← Andere Route
         </a>
-        <button class="btn-confirm" onclick="confirmRoute()">
-          ⚔ Trotzdem wählen
-        </button>
+        <a href="Fellowship-Companion-Page2.html" class="btn-confirm">
+          Trotzdem nehmen
+        </a>
       </div>
+
     </div>
   </div>
 
 </div>
-
-<!-- Confirmed overlay -->
-<div class="confirmed-overlay" id="confirmedOverlay">
-  <div class="confirmed-icon">⚔</div>
-  <div class="confirmed-title">Route gesetzt</div>
-  <div class="confirmed-text">
-    "Alle Wege nach Bree sind gefährlich. Aber der mutige Schritt ist getan.
-    Die Gefährten wurden benachrichtigt."
-  </div>
-  <a href="page2-map.html" class="confirmed-btn">Zur Karte →</a>
-</div>
-
-<script>
-  function confirmRoute() {
-    document.getElementById('confirmedOverlay').classList.add('visible');
-  }
-</script>
 </body>
 </html>

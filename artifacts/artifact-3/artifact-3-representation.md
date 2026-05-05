@@ -1,15 +1,70 @@
-# Artifact 3 - Representation
+# Artifact 3 — Representation
 
-## System Capability
+## Selected System Capability
 
-**Navigation und Orientierung**
+**Navigation und Orientierung** — Die Gruppe kann auf einer stilisierten 2.5D-Karte ein Ziel auswählen und erhält Routenvorschläge, bewertet nach Distanz, Geländeschwierigkeit und zuletzt bekannten Feindpositionen. Bei hoher Gefahrenstufe erscheint ein Bestätigungs-Dialog, bevor die Route aktiv gesetzt wird.
 
-Die Gruppe kann auf einer 2.5D-Karte ein Ziel auswählen und erhält daraufhin Routenvorschläge, die anhand von Distanz, Geländeschwierigkeit und zuletzt bekannten Gefahrenpositionen (z.B. Nazgûl-Sichtungen) bewertet werden. Der Nutzer entscheidet sich für eine Route und die Gruppe wird entlang dieser navigiert.
+---
 
-**Warum dieses Feature?**
+## Implementation
 
-Das Feature wurde gewählt um der Gruppe eine Form von Sicherheit zu geben. Eine Navigationshilfe ist in der aktuellen Situation sehr hilfreich und der erste Schritt um ans Ziel zu kommen. 
+- **Interface:** [`src/interface.html`](src/interface.html)
+- **Styles:** [`src/style.css`](src/style.css)
+- **Wireframe (Referenz):** [`src/decisions.png`](src/decisions.png)
 
+---
+
+## Design Rationale
+
+### Wie unterstützt dieses Interface die Absicht aus Assignment 1?
+
+Assignment 1 definiert fünf Capabilities und priorisiert **Navigation & Orientierung** als Scope-1-Feature, weil sie foundational für alles andere ist: eine Gruppe, die sich nicht sicher orientieren kann, hat keine Handlungsfähigkeit. Das Interface setzt genau diese Priorität um.
+
+Die zwei Personas aus Assignment 1 spiegeln sich direkt in den UX-Entscheidungen wider:
+
+- **Frodo** (low-tech, Entscheidungsträger) braucht klare Empfehlungen ohne Informationsüberlastung — daher "Empfohlen"-Badge und Gefahren-Sortierung als Standard. Die Routen sind nicht gleichwertig präsentiert; die sicherste Option ist visuell hervorgehoben.
+- **Aragorn** (medium-tech, Stratege) würde die Sort-Tabs und Detailkennzahlen nutzen — sie sind vorhanden, aber nicht aufdringlich.
+
+Der Launcher zeigt drei gesperrte Module neben dem aktiven Karten-Modul. Das kommuniziert direkt aus Assignment 1: die App ist eine "allgemeine Companion App mit verschiedenen Modulen" — Navigation ist Schritt eins, nicht das Gesamtprodukt.
+
+### Wie spiegelt es das Wireframe aus Assignment 2?
+
+Das Wireframe aus Assignment 2 zeigt vier Phones nebeneinander: Launcher, Kartenansicht, Routenvergleich, Gefahren-Warnung. Das Interface implementiert genau diese vier Screens, in dieser Reihenfolge, mit dem selben Interaktionsfluss:
+
+| Wireframe (Assignment 2) | Interface (Assignment 3)         |
+| ------------------------ | -------------------------------- |
+| Phone 1: Hauptmenü, 2×2-Grid, ein aktiver Slot | Screen 1: Launcher, gleiche Grid-Struktur |
+| Phone 2: Geographie-Ansicht mit Ankerpunkten | Screen 2: Kartenansicht, isometrische SVG-Karte mit Frodo, Gefährten, Nazgûl-Zonen, Ziel |
+| Phone 3: Optionen-Vergleich mit zwei Spalten | Screen 3: Routenvergleich als Liste mit 3 Karten, Gefahren-Balken, Sort-Tabs |
+| Phone 4: Kategorie-Warnung als Overlay | Screen 4: Warning-Sheet von unten über gedimmtem Screen 3 |
+
+Die Annotation "Option-Größe (Fitt's)" im Wireframe für Screen 1 ist explizit umgesetzt: die Modul-Kacheln sind `min-height: 148px`, großflächig tippbar. Die "Zurück"-Navigation und der Fortschrittsbalken für Gefahrenstufe aus dem Wireframe finden sich ebenfalls im Interface.
+
+### Was wurde bewusst nicht implementiert?
+
+- **Echter Tap auf die Karte:** Im Wireframe-Flow tippt der Nutzer auf einen Punkt der Karte, um ein Ziel zu setzen. Das ist nicht interaktiv — die Karte ist ein statisches SVG. Der "Routen berechnen"-Button springt direkt zum Routenvergleich. Ein interaktiver Zielpunkt würde JavaScript-Canvas oder eine Map-Library erfordern, was den Scope überschreitet.
+- **Echte Sortierung:** Die Sort-Tabs wechseln visuell den aktiven Zustand, ordnen die Routenkarten aber nicht um. Die tatsächliche Sortierlogik ist als UI-Zustand angedeutet, nicht implementiert.
+- **Gruppen-Update nach Routenwahl:** Flow-Schritt T im Mermaid-Diagram ("Gruppenmitglieder erhalten Routenupdate") hat keinen eigenen Screen — das setzt Netzwerk/Kommunikations-Infrastruktur voraus, die explizit außerhalb dieses Slices liegt.
+- **Edge Cases:** Die Flows für "Gebiet nicht kartiert" und "kein begehbarer Weg bekannt" sind im Flussdiagramm modelliert, aber nicht als eigene Screens implementiert.
+
+### Welche Assumptions und Constraints haben die Entscheidungen geprägt?
+
+**Constraint: Webanwendung ohne Backend (Assignment 1, Constraint 2)**
+Alle Screens sind statisches HTML/CSS mit minimalem JavaScript für Navigation. Keine API-Calls, keine Datenbankanbindung. Das begrenzt die Interaktivität der Karte und macht die Routenliste statisch.
+
+**Assumption: Kartendaten und Gefahrendaten sind vorhanden**
+Die Karte zeigt fest kodierte Positionen (Frodo, Gefährten, Nazgûl-Sichtungen, Bree als Ziel). Im echten System kämen diese aus manuell gepflegten Datenquellen (Assignment 1, Constraint 3) und der Capability "Gefahrenerkennung".
+
+**Constraint: Mobile-First**
+Das Layout ist auf `max-width: 430px` ausgelegt. Auf Desktop erscheint die App als abgerundetes Phone-Frame. Alle Tap-Targets sind nach Fitts' Law dimensioniert — besonders relevant, weil die Nutzungssituation (unterwegs, unter Stress) präzise Interaktion schwierig macht.
+
+**Entscheidung: "Zuletzt gesichtet" statt Echtzeit**
+Nazgûl-Positionen zeigen Zeitstempel ("vor 2h"), keine Live-Position. Das ist lore-konsistent (Hobbits haben kein Echtzeit-Tracking) und interface-ehrlich: ein blinkender Punkt ohne Zeitstempel würde Sicherheit suggerieren, die nicht existiert.
+
+**Entscheidung: Warning als Bottom Sheet, nicht eigene Seite**
+Screen 4 ist ein Bottom Sheet über einem gedimmten Echo von Screen 3. Der Kontext bleibt sichtbar — der Nutzer sieht noch, welche Route er gewählt hat. Die zwei gleichwertigen Buttons (50/50-Grid, kein Primär/Sekundär) geben die Entscheidungsverantwortung an den Nutzer zurück.
+
+---
 
 ## Flow
 
@@ -18,95 +73,51 @@ flowchart TD
     A[Nutzer öffnet App] --> B[Launcher: Modulübersicht]
     B --> C[Nutzer wählt Modul 'Karte']
     C --> D[2.5D-Kartenansicht wird geladen]
-    D --> E[Karte zeigt eigenen Charakter, Gruppe, Nazgûl-Sichtungen]
-    E --> F[Nutzer tippt auf Zielpunkt auf der Karte]
+    D --> E[Karte zeigt Frodo, Gruppe, Nazgûl-Sichtungen]
+    E --> F[Nutzer tippt auf Zielpunkt]
     F --> G{Zielpunkt in bekanntem Terrain?}
- 
-    G -- Nein --> H[Hinweis: Gebiet nicht kartiert - kein Routenvorschlag möglich]
+
+    G -- Nein --> H[Hinweis: Gebiet nicht kartiert]
     H --> E
- 
-    G -- Ja --> I[System berechnet mögliche Routen]
+
+    G -- Ja --> I[System berechnet Routen]
     I --> J{Routen gefunden?}
- 
-    J -- Nein --> K[Hinweis: Kein begehbarer Weg bekannt]
+
+    J -- Nein --> K[Hinweis: Kein begehbarer Weg]
     K --> E
- 
-    J -- Ja --> L[Routenvergleich: Liste mit Distanz, Schwierigkeit, Gefahrenstufe]
-    L --> M[Nutzer kann Sortierung ändern: Gefahr / Distanz / Schwierigkeit]
+
+    J -- Ja --> L[Routenvergleich: Distanz, Schwierigkeit, Gefahrenstufe]
+    L --> M[Nutzer ändert Sortierung optional]
     M --> N[Nutzer wählt eine Route]
     N --> O{Gefahrenstufe hoch?}
- 
-    O -- Ja --> P[Warnung: Gefahrendetails anzeigen]
-    P --> Q{Nutzer bestätigt Route trotz Gefahr?}
+
+    O -- Ja --> P[Warnung: Gefahrendetails]
+    P --> Q{Nutzer bestätigt?}
     Q -- Nein --> L
-    Q -- Ja --> R[Route wird als aktive Route gesetzt]
- 
+    Q -- Ja --> R[Route als aktive Route gesetzt]
+
     O -- Nein --> R
- 
-    R --> S[Karte zeigt gewählte Route mit Wegpunkten]
+
+    R --> S[Karte zeigt Route mit Wegpunkten]
     S --> T[Gruppenmitglieder erhalten Routenupdate]
-``` 
+```
+
 ---
 
-## Wireframe
+## Screen-Beschreibungen
 
-[Wireframe](src/decisions.png)
+### Screen 1 — Launcher
 
-**Beschreibung der Screens:**
+Einstiegspunkt der App. 2×2-Grid mit vier Modul-Kacheln. Nur "Karte & Navigation" ist aktiv; die anderen drei (Gefahrenerkennung, Gruppenkoordination, Lexikon) sind ausgegraut und als "Bald verfügbar" markiert. Das kommuniziert den geplanten Umfang der App ohne falsche Erwartungen. Fitts'-Law-Dimensionierung: jede Kachel ist `148px` hoch für sichere Tap-Targets.
 
-TODO!
+### Screen 2 — Kartenansicht
 
-### Screen 1: Launcher
+Isometrische SVG-Karte mit Perspektivgitter. Frodo als goldener Puls-Marker, Gefährten als blaue Kreise, Nazgûl-Sichtungen als blinkende rote Zonen mit Zeitstempel ("vor 2h"), Bree als Ziel-Marker. Alert-Leiste am unteren Rand, darüber ein prominenter CTA-Button "Routen berechnen → Ziel: Bree".
 
-Der Launcher ist das Hauptmenü der Anwendung. Er zeigt die verfügbaren Module als große, klar beschriftete Kacheln an. Für den aktuellen Scope ist nur das Modul **"Karte"** aktiv — die anderen Module (Lexikon, Kommunikation, etc.) sind sichtbar, aber ausgegraut, um den zukünftigen Funktionsumfang anzudeuten, ohne falsche Erwartungen zu wecken.
+### Screen 3 — Routenvergleich
 
-### Screen 2: Kartenansicht (2.5D)
+Drei Routenkarten, standardmäßig nach Gefahrenstufe sortiert (sicherste zuerst). Jede Karte zeigt Distanz, Geländeschwierigkeit und Gefahrenstufe mit Farbbalken. Die empfohlene Route hat ein grünes Badge; die Nebelmoor-Route ein rotes "Hohe Gefahr"-Badge und roten Kartenrahmen. Sort-Tabs zum Umschalten der Sortierung.
 
-Die Karte ist der zentrale Screen. Sie zeigt:
+### Screen 4 — Gefahren-Warnung
 
-- **Eigener Charakter** als Mini-Karikatur im Zentrum der Karte
-- **Gruppenmitglieder** als kleinere Karikaturen mit Namen, sofern sie sich in Kartenreichweite befinden
-- **Nazgûl-Sichtungen** als rote Markierungen mit Zeitstempel ("Zuletzt gesichtet: vor 2 Stunden"), um die Ungewissheit über die aktuelle Position zu kommunizieren
-- **Terrain-Informationen** durch visuelle Unterscheidung (Wald, Gebirge, Fluss, Pfad)
-
-Der Nutzer kann auf einen beliebigen Punkt der Karte tippen, um ihn als **Ziel** zu setzen. Daraufhin öffnet sich der Routenvergleich.
-
-### Screen 3: Routenvergleich
-
-Dieser Screen zeigt die verfügbaren Routen zum gewählten Ziel als Liste, jeweils mit:
-
-- **Geschätzte Distanz** (in Tagesreisen)
-- **Geländeschwierigkeit** (leicht / mittel / schwer) basierend auf Terrain
-- **Gefahrenstufe** (niedrig / mittel / hoch) basierend auf der Nähe zu zuletzt bekannten Bedrohungen
-- **Routenverlauf** als hervorgehobene Linie auf der Karte im Hintergrund
-
-Die Routen sind standardmäßig nach Gefahrenstufe sortiert (sicherste zuerst), weil im Kontext der Reise das Überleben Vorrang vor Geschwindigkeit hat. Der Nutzer kann die Sortierung auf Distanz oder Schwierigkeit umschalten.
-
-Wählt der Nutzer eine Route mit hoher Gefahrenstufe, erscheint eine **Warnung** mit den konkreten Gefahrendetails, bevor die Route bestätigt werden kann.
-
-## Design Rationale
-
-### Bezug zu Artifact 1
-
-Die Capability "Navigation & Orientierung" aus Artifact 1 formuliert drei Teilaspekte: Orientierung, sichere Routen und Standortverfolgung. Dieser Slice fokussiert auf **sichere Routen** und nutzt die Orientierung (Karte) als Vehikel für die Routenwahl. Die Standortverfolgung fließt passiv ein (Positionen der Gruppenmitglieder sind sichtbar), wird aber nicht als eigene Funktion gestaltet.
-
-### Entscheidung: Launcher als Modulübersicht
-
-Der Launcher existiert, weil die Anwendung laut Artifact 1 eine "allgemeine Companion App mit verschiedenen Modulen" sein soll. Eine modulare Einstiegsseite statt eines direkten Kartenstarts hat den Vorteil, dass zukünftige Capabilities (Lexikon, Kommunikation) ohne Umstrukturierung integriert werden können. Der Trade-off ist ein zusätzlicher Tap bis zur Karte — akzeptabel, weil die Routenwahl kein sekundenrelevanter Vorgang ist.
-
-### Entscheidung: 2.5D-Karte statt 2D oder 3D
-
-Eine 2.5D-Darstellung (isometrische Perspektive) bietet gegenüber 2D den Vorteil, Geländeunterschiede (Berge, Täler) intuitiv darzustellen — das ist für die Routenwahl entscheidend, weil die Geländeschwierigkeit ein Bewertungskriterium ist. Volle 3D wurde verworfen, weil sie die Übersichtlichkeit reduziert und höhere technische Komplexität für eine Webanwendung (Constraint aus Artifact 1) mit sich bringt.
-
-### Entscheidung: "Zuletzt gesichtet" statt Echtzeit
-
-Nazgûl-Positionen werden als "zuletzt gesichtet/gespürt" mit Zeitstempel angezeigt, nicht als Echtzeit-Tracking. Das ist eine bewusste Designentscheidung aus zwei Gründen:
-
-1. **Lore-Konsistenz:** Die Hobbits haben keine Möglichkeit, Feinde in Echtzeit zu verfolgen. Die Information kommt aus eigenen Beobachtungen oder Berichten anderer.
-2. **Ehrliche Unsicherheit:** Ein Echtzeit-Punkt suggeriert Sicherheit, die nicht existiert. Ein Zeitstempel kommuniziert explizit: "Diese Information ist veraltet — entscheide entsprechend."
-
-### Assumptions
-
-1. **Kartendaten existieren:** Die Karte basiert auf manuell gepflegten Daten (konsistent mit Constraint 3 aus Artifact 1: "Inhalte müssen manuell gepflegt werden"). Routen können nur über bekanntes Terrain berechnet werden — unerforschte Gebiete erscheinen als leere Flächen.
-2. **Routenberechnung ist deterministisch:** Das System schlägt Routen basierend auf vorhandenen Pfaden und Terrain vor. Es gibt keine KI-basierte Optimierung — die Entscheidung liegt beim Nutzer.
-3. **Gefahrendaten werden extern geliefert:** Die Positionen von Bedrohungen kommen aus der Capability "Gefahrenerkennung". Für diesen Slice nehmen wir an, dass diese Daten vorhanden sind, ohne deren Erfassung zu gestalten.
+Bottom Sheet über gedimmtem Screen 3. Roter Warn-Icon mit Glow-Effekt, drei Gefahrendetails (Sichtungen, Zeitstempel, Terrain), zwei gleichwertige Buttons: "← Andere Route" und "Trotzdem nehmen". Das Sheet animiert von unten herein (`slideUp`).

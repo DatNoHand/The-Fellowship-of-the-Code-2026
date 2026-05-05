@@ -29,12 +29,13 @@ Reflexion: Erkenntnis über die enge Verzahnung von Logik (Flowchart) und Interf
 
 ## Artifact
 
-**File:** [Artifact 3](../artifacts/artifact-3/artifact-3-representation.md)
+**Dokumentation:** [Artifact 3 — Representation](../artifacts/artifact-3/artifact-3-representation.md)
 
+**Interface:** [interface.html](../artifacts/artifact-3/src/interface.html) · [style.css](../artifacts/artifact-3/src/style.css)
 
 **Build:**
 
-System-Konzeption (Mermaid Flowchart & KI-generiertes Wireframe)
+Statische Single-Page-App in HTML/CSS mit JavaScript-Navigation zwischen vier Screens: Launcher, Kartenansicht (isometrische SVG-Karte), Routenvergleich und Gefahren-Warnung als Bottom Sheet.
 
 **Focus:**
 
