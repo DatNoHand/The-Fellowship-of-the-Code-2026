@@ -1,123 +1,162 @@
-# Artifact 3 — Representation
+# Artifact 3 – Representation
 
-## Selected System Capability
+## System Capability
 
-**Navigation und Orientierung** — Die Gruppe kann auf einer stilisierten 2.5D-Karte ein Ziel auswählen und erhält Routenvorschläge, bewertet nach Distanz, Geländeschwierigkeit und zuletzt bekannten Feindpositionen. Bei hoher Gefahrenstufe erscheint ein Bestätigungs-Dialog, bevor die Route aktiv gesetzt wird.
+### Navigation und Orientierung (Fokus: Routenentscheidung & Darstellung)
+
+Die Anwendung ermöglicht es Frodo und der Gruppe, berechnete Routen von ihrem aktuellen Standort (Buckland) zum nächsten Ziel (Bree) visuell zu vergleichen und eine Route aktiv auszuwählen. Die Nutzer sehen strukturierte Informationen zu Distanz, Gefahrenstufe und Geländeschwierigkeit — und können darauf basierend eine informierte Entscheidung treffen.
+
+**Warum dieses Feature?**
+
+Während Artifact 2 die Logik und den Flow der gesamten Navigations-Capability beschreibt, liegt der Fokus hier darauf, wie die Routenwahl konkret in der Oberfläche repräsentiert wird.
+
+Gerade in einer unsicheren Umgebung wie Mittelerde — Nazgûl auf den Fersen, unbekanntes Terrain — ist es entscheidend, dass Informationen klar, schnell erfassbar und vergleichbar sind. Die UI reduziert Komplexität und unterstützt Frodo dabei, Risiken bewusst abzuwägen: nicht einfach die schnellste Route nehmen, sondern die sicherste.
 
 ---
 
-## Implementation
+## Statische Interface Implementation
 
-- **Interface:** [`src/interface.html`](src/interface.html)
-- **Styles:** [`src/style.css`](src/style.css)
-- **Wireframe (Referenz):** [`src/decisions.png`](src/decisions.png)
+👉 [src/interface.html](src/interface.html)
+
+---
+
+## Beschreibung der Interface-Struktur
+
+Die implementierte Oberfläche besteht aus vier Screens, die direkt aus dem Wireframe aus Artifact 2 abgeleitet wurden. Der Kern liegt auf Screen 3 (Routenvergleich) und Screen 4 (Gefahren-Warnung) als der eigentlichen Entscheidungsmoment.
+
+### 1. Launcher (Einstieg & Orientierung)
+
+Der Launcher zeigt:
+
+- App-Name und Kontext: "Fellowship Companion — Dein Wegbegleiter durch Mittelerde"
+- Datum im lore-konsistenten Auenland-Kalender ("9. Blumenmonat, S.Z. 3018")
+- Animierter Bedrohungsindikator: "⚠ Bedrohung nahe"
+- 2×2-Modul-Grid: nur **Karte & Navigation** ist aktiv, drei weitere Module sind ausgegraut ("Bald verfügbar")
+
+**Zweck:** Der Nutzer versteht sofort, dass dies eine App mit mehreren Capabilities ist — und dass er sich gerade in einem frühen Stand befindet. Nur ein Pfad ist offen.
+
+### 2. Kartenansicht (Kontext vor der Entscheidung)
+
+Die isometrische SVG-Karte zeigt:
+
+- **Frodo** als pulsierender goldener Marker ("FRODO") — visuell dominant
+- **Gefährten** (Samweis, Merry, Pippin) als kleinere blaue Marker in der Nähe
+- **Nazgûl-Sichtungen** als blinkende rote Gefahrenzonen mit Zeitstempel ("vor 2h", "vor 5h")
+- **Bree** als Ziel-Marker am Ende der Straße
+- Alert-Leiste: "Nazgûl gesichtet — 2 Reiter, zuletzt vor ~2 Stunden"
+
+**Zweck:** Bevor die Routenliste erscheint, versteht der Nutzer die Ausgangslage — wo er ist, wo die Gefahr ist, wohin er muss. Die Entscheidung hat Kontext.
+
+### 3. Routenliste (Kern der Entscheidung)
+
+Dies ist der wichtigste Bereich der UI.
+
+Jede der drei Routen ist als eigene Karte dargestellt und enthält:
+
+- **Distanz** (z.B. "8 Tagesreisen")
+- **Geländeschwierigkeit** (Leicht / Mittel / Schwer)
+- **Gefahrenstufe** (Niedrig / Mittel / Hoch) — mit farbigem Balken und Textwert
+- **Kurzbeschreibung** der Route in einem Satz
+
+Zusätzlich:
+
+- Standard-Sortierung: nach Sicherheit (sicherste Route zuerst)
+- Alternative Sortierung über Tabs: Distanz, Schwierigkeit
+- Visuelles Hervorheben: empfohlene Route mit grünem Rahmen und "Empfohlen"-Badge, Hochrisiko-Route mit rotem Rahmen und "Hohe Gefahr"-Badge
+
+**Zweck:** Frodo soll nicht rechnen oder interpretieren müssen — die UI macht die Unterschiede zwischen den drei Routen sofort sichtbar. Die sicherste Option ist die erste und hervorgehobene.
+
+### 4. Gefahren-Warnung (Bewusste Bestätigung)
+
+Wählt der Nutzer die Route "Durch das Nebelmoor" (hohe Gefahr), erscheint ein Bottom Sheet über einem gedimmten Echo der Routenliste. Das Sheet enthält:
+
+- Roten Warn-Icon mit animiertem Glow
+- Titel: "Hohe Gefahr — Route bestätigen?"
+- Drei konkrete Gefahrendetails: Anzahl Nazgûl-Sichtungen, Zeitstempel der letzten Sichtung, Terrain-Warnung
+- Zwei gleichwertige Buttons: **"← Andere Route"** und **"Trotzdem nehmen"**
+
+**Zweck:** Die Entscheidung wird bewusst gemacht — nicht einfach auswählen, sondern aktiv bestätigen. Die Buttons sind absichtlich gleichwertig (kein Primär/Sekundär), damit Frodo die Verantwortung spürt.
 
 ---
 
 ## Design Rationale
 
-### Wie unterstützt dieses Interface die Absicht aus Assignment 1?
+### Bezug zu Artifact 2
 
-Assignment 1 definiert fünf Capabilities und priorisiert **Navigation & Orientierung** als Scope-1-Feature, weil sie foundational für alles andere ist: eine Gruppe, die sich nicht sicher orientieren kann, hat keine Handlungsfähigkeit. Das Interface setzt genau diese Priorität um.
+Der implementierte Flow entspricht direkt den Schritten aus dem Mermaid-Diagram in Artifact 2:
 
-Die zwei Personas aus Assignment 1 spiegeln sich direkt in den UX-Entscheidungen wider:
+> **L** → Routenvergleich: Liste mit Distanz, Schwierigkeit, Gefahrenstufe  
+> **M** → Nutzer ändert Sortierung  
+> **N** → Nutzer wählt Route  
+> **O/P** → Gefahrenstufe hoch? → Warnung anzeigen  
+> **Q** → Nutzer bestätigt trotz Gefahr?
 
-- **Frodo** (low-tech, Entscheidungsträger) braucht klare Empfehlungen ohne Informationsüberlastung — daher "Empfohlen"-Badge und Gefahren-Sortierung als Standard. Die Routen sind nicht gleichwertig präsentiert; die sicherste Option ist visuell hervorgehoben.
-- **Aragorn** (medium-tech, Stratege) würde die Sort-Tabs und Detailkennzahlen nutzen — sie sind vorhanden, aber nicht aufdringlich.
+Aus dem Flow wurden bewusst einige Schritte **nicht** als eigene Screens implementiert:
 
-Der Launcher zeigt drei gesperrte Module neben dem aktiven Karten-Modul. Das kommuniziert direkt aus Assignment 1: die App ist eine "allgemeine Companion App mit verschiedenen Modulen" — Navigation ist Schritt eins, nicht das Gesamtprodukt.
+- Kein interaktiver Zielpunkt auf der Karte (G/H/I im Flow)
+- Kein "Kein begehbarer Weg"-Screen (K im Flow)
+- Kein Gruppen-Routenupdate (T im Flow)
 
-### Wie spiegelt es das Wireframe aus Assignment 2?
-
-Das Wireframe aus Assignment 2 zeigt vier Phones nebeneinander: Launcher, Kartenansicht, Routenvergleich, Gefahren-Warnung. Das Interface implementiert genau diese vier Screens, in dieser Reihenfolge, mit dem selben Interaktionsfluss:
-
-| Wireframe (Assignment 2) | Interface (Assignment 3)         |
-| ------------------------ | -------------------------------- |
-| Phone 1: Hauptmenü, 2×2-Grid, ein aktiver Slot | Screen 1: Launcher, gleiche Grid-Struktur |
-| Phone 2: Geographie-Ansicht mit Ankerpunkten | Screen 2: Kartenansicht, isometrische SVG-Karte mit Frodo, Gefährten, Nazgûl-Zonen, Ziel |
-| Phone 3: Optionen-Vergleich mit zwei Spalten | Screen 3: Routenvergleich als Liste mit 3 Karten, Gefahren-Balken, Sort-Tabs |
-| Phone 4: Kategorie-Warnung als Overlay | Screen 4: Warning-Sheet von unten über gedimmtem Screen 3 |
-
-Die Annotation "Option-Größe (Fitt's)" im Wireframe für Screen 1 ist explizit umgesetzt: die Modul-Kacheln sind `min-height: 148px`, großflächig tippbar. Die "Zurück"-Navigation und der Fortschrittsbalken für Gefahrenstufe aus dem Wireframe finden sich ebenfalls im Interface.
-
-### Was wurde bewusst nicht implementiert?
-
-- **Echter Tap auf die Karte:** Im Wireframe-Flow tippt der Nutzer auf einen Punkt der Karte, um ein Ziel zu setzen. Das ist nicht interaktiv — die Karte ist ein statisches SVG. Der "Routen berechnen"-Button springt direkt zum Routenvergleich. Ein interaktiver Zielpunkt würde JavaScript-Canvas oder eine Map-Library erfordern, was den Scope überschreitet.
-- **Echte Sortierung:** Die Sort-Tabs wechseln visuell den aktiven Zustand, ordnen die Routenkarten aber nicht um. Die tatsächliche Sortierlogik ist als UI-Zustand angedeutet, nicht implementiert.
-- **Gruppen-Update nach Routenwahl:** Flow-Schritt T im Mermaid-Diagram ("Gruppenmitglieder erhalten Routenupdate") hat keinen eigenen Screen — das setzt Netzwerk/Kommunikations-Infrastruktur voraus, die explizit außerhalb dieses Slices liegt.
-- **Edge Cases:** Die Flows für "Gebiet nicht kartiert" und "kein begehbarer Weg bekannt" sind im Flussdiagramm modelliert, aber nicht als eigene Screens implementiert.
-
-### Welche Assumptions und Constraints haben die Entscheidungen geprägt?
-
-**Constraint: Webanwendung ohne Backend (Assignment 1, Constraint 2)**
-Alle Screens sind statisches HTML/CSS mit minimalem JavaScript für Navigation. Keine API-Calls, keine Datenbankanbindung. Das begrenzt die Interaktivität der Karte und macht die Routenliste statisch.
-
-**Assumption: Kartendaten und Gefahrendaten sind vorhanden**
-Die Karte zeigt fest kodierte Positionen (Frodo, Gefährten, Nazgûl-Sichtungen, Bree als Ziel). Im echten System kämen diese aus manuell gepflegten Datenquellen (Assignment 1, Constraint 3) und der Capability "Gefahrenerkennung".
-
-**Constraint: Mobile-First**
-Das Layout ist auf `max-width: 430px` ausgelegt. Auf Desktop erscheint die App als abgerundetes Phone-Frame. Alle Tap-Targets sind nach Fitts' Law dimensioniert — besonders relevant, weil die Nutzungssituation (unterwegs, unter Stress) präzise Interaktion schwierig macht.
-
-**Entscheidung: "Zuletzt gesichtet" statt Echtzeit**
-Nazgûl-Positionen zeigen Zeitstempel ("vor 2h"), keine Live-Position. Das ist lore-konsistent (Hobbits haben kein Echtzeit-Tracking) und interface-ehrlich: ein blinkender Punkt ohne Zeitstempel würde Sicherheit suggerieren, die nicht existiert.
-
-**Entscheidung: Warning als Bottom Sheet, nicht eigene Seite**
-Screen 4 ist ein Bottom Sheet über einem gedimmten Echo von Screen 3. Der Kontext bleibt sichtbar — der Nutzer sieht noch, welche Route er gewählt hat. Die zwei gleichwertigen Buttons (50/50-Grid, kein Primär/Sekundär) geben die Entscheidungsverantwortung an den Nutzer zurück.
+Diese Reduktion entspricht dem Assignment-Ziel: **ein klarer Capability-Slice statt ein komplettes System**.
 
 ---
 
-## Flow
+### Entscheidung: Kartenansicht als Kontext, nicht als Kernfunktion
 
-```mermaid
-flowchart TD
-    A[Nutzer öffnet App] --> B[Launcher: Modulübersicht]
-    B --> C[Nutzer wählt Modul 'Karte']
-    C --> D[2.5D-Kartenansicht wird geladen]
-    D --> E[Karte zeigt Frodo, Gruppe, Nazgûl-Sichtungen]
-    E --> F[Nutzer tippt auf Zielpunkt]
-    F --> G{Zielpunkt in bekanntem Terrain?}
+Die Karte ist implementiert, aber nicht interaktiv. Man kann nicht auf ihr tippen, um ein Ziel zu setzen. Stattdessen ist die Karte ein visueller Kontext-Screen vor dem eigentlichen Entscheidungsmoment.
 
-    G -- Nein --> H[Hinweis: Gebiet nicht kartiert]
-    H --> E
+**Warum?**
 
-    G -- Ja --> I[System berechnet Routen]
-    I --> J{Routen gefunden?}
+- Technische Einschränkung: nur HTML/CSS/minimales JS
+- Fokus liegt auf der Entscheidungslogik, nicht auf der Navigation
+- Die Routenliste ist besser geeignet für strukturierten Vergleich
 
-    J -- Nein --> K[Hinweis: Kein begehbarer Weg]
-    K --> E
-
-    J -- Ja --> L[Routenvergleich: Distanz, Schwierigkeit, Gefahrenstufe]
-    L --> M[Nutzer ändert Sortierung optional]
-    M --> N[Nutzer wählt eine Route]
-    N --> O{Gefahrenstufe hoch?}
-
-    O -- Ja --> P[Warnung: Gefahrendetails]
-    P --> Q{Nutzer bestätigt?}
-    Q -- Nein --> L
-    Q -- Ja --> R[Route als aktive Route gesetzt]
-
-    O -- Nein --> R
-
-    R --> S[Karte zeigt Route mit Wegpunkten]
-    S --> T[Gruppenmitglieder erhalten Routenupdate]
-```
+**Trade-off:** Weniger Immersion — dafür klarere Entscheidungsstruktur.
 
 ---
 
-## Screen-Beschreibungen
+### Entscheidung: Visuelle Hierarchie statt Text
 
-### Screen 1 — Launcher
+Die UI nutzt unterschiedliche Größen, Abstände und Farbkodierung, um wichtige Informationen hervorzuheben. Die empfohlene Route ist größer wahrnehmbar als die gesperrten Module; die Gefahrenstufe ist ein farbiger Balken, nicht nur Text.
 
-Einstiegspunkt der App. 2×2-Grid mit vier Modul-Kacheln. Nur "Karte & Navigation" ist aktiv; die anderen drei (Gefahrenerkennung, Gruppenkoordination, Lexikon) sind ausgegraut und als "Bald verfügbar" markiert. Das kommuniziert den geplanten Umfang der App ohne falsche Erwartungen. Fitts'-Law-Dimensionierung: jede Kachel ist `148px` hoch für sichere Tap-Targets.
+**Warum?** In Stresssituationen — Nazgûl in der Nähe, Zeitdruck — lesen Nutzer keine langen Texte. Sie scannen. Die UI muss Unterschiede sofort sichtbar machen.
 
-### Screen 2 — Kartenansicht
+---
 
-Isometrische SVG-Karte mit Perspektivgitter. Frodo als goldener Puls-Marker, Gefährten als blaue Kreise, Nazgûl-Sichtungen als blinkende rote Zonen mit Zeitstempel ("vor 2h"), Bree als Ziel-Marker. Alert-Leiste am unteren Rand, darüber ein prominenter CTA-Button "Routen berechnen → Ziel: Bree".
+### Entscheidung: Farbe als Bedeutungsträger
 
-### Screen 3 — Routenvergleich
+Farben sind nicht dekorativ, sondern funktional:
 
-Drei Routenkarten, standardmäßig nach Gefahrenstufe sortiert (sicherste zuerst). Jede Karte zeigt Distanz, Geländeschwierigkeit und Gefahrenstufe mit Farbbalken. Die empfohlene Route hat ein grünes Badge; die Nebelmoor-Route ein rotes "Hohe Gefahr"-Badge und roten Kartenrahmen. Sort-Tabs zum Umschalten der Sortierung.
+- **Grün** → sicher ("Grüne Auen Straße", "Empfohlen"-Badge)
+- **Bernstein** → mittel ("Über die Südhügel", "Mittel"-Badge)
+- **Rot** → gefährlich ("Durch das Nebelmoor", "Hohe Gefahr"-Badge, Warning-Sheet)
 
-### Screen 4 — Gefahren-Warnung
+**Warum?** Schnelle Interpretation ohne Lesen. Frodo als Low-Tech-Nutzer (Persona aus Artifact 1) soll nicht durch Text navigieren müssen.
 
-Bottom Sheet über gedimmtem Screen 3. Roter Warn-Icon mit Glow-Effekt, drei Gefahrendetails (Sichtungen, Zeitstempel, Terrain), zwei gleichwertige Buttons: "← Andere Route" und "Trotzdem nehmen". Das Sheet animiert von unten herein (`slideUp`).
+---
+
+### Entscheidung: Jede Route hat ihren eigenen Call-to-Action
+
+Jede Routenkarte ist ein eigener Button statt einer globalen Auswahl.
+
+**Warum?**
+
+- verhindert Verwechslung zwischen Route und Aktion
+- die Entscheidung ist direkt mit der Option verbunden
+- reduziert kognitive Last
+
+Bei der Hochrisiko-Route führt der Button nicht direkt zur Bestätigung, sondern zur Gefahren-Warnung — ein zusätzlicher Schritt, der die Konsequenz bewusst macht.
+
+---
+
+## Annahmen (Assumptions)
+
+1. **Nutzer kennt grundlegende UI-Muster** — Buttons, Listen, visuelle Hierarchie. Frodo mag Low-Tech sein, aber das App-Muster ist intuitiv genug.
+
+2. **Routendaten sind bereits berechnet** — Die UI zeigt nur Ergebnisse. Die Berechnung von Distanz, Geländeschwierigkeit und Gefahrenstufe passiert im Hintergrund durch die "Gefahrenerkennung"-Capability (Artifact 1).
+
+3. **Gefahrenbewertung ist verlässlich genug** — Die "Zuletzt gesichtet"-Zeitstempel machen die Unsicherheit der Daten explizit. Frodo weiss: "vor 2h" bedeutet nicht "aktuell sicher", sondern "zuletzt gesehen vor 2h — könnte sich bewegt haben".
+
+4. **Nutzung erfolgt in ruhigen Momenten** — Routenwahl ist keine Echtzeit-Interaktion. Die Gruppe hält kurz an und plant. Kein Scrolling unter Beschuss.
+
+5. **Gerät ist mobil oder touch-zugänglich** — Layout ist Mobile-First (`max-width: 430px`), Tap-Targets nach Fitts' Law dimensioniert. Funktioniert auch auf Desktop als zentriertes Phone-Frame.
