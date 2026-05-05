@@ -29,7 +29,7 @@ Reflexion: Erkenntnis über die enge Verzahnung von Logik (Flowchart) und Interf
 
 ## Artifact
 
-**File:** [Artifact 2](../artifacts/artifact-2/artifact-2-deciding.md)
+**File:** [Artifact 3](../artifacts/artifact-3/artifact-3-representation.md)
 
 
 **Build:**
