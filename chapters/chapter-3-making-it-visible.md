@@ -18,7 +18,7 @@ Dieses Kapitel konzentriert sich auf die visuelle Repräsentation und strukturel
 **Learning Outcomes**
 Semantik: Verständnis dafür, wie HTML-Struktur (Header, Main, Section) die Hierarchie des Interfaces ohne visuelle Dekoration ausdrückt.
 
-Layout-Logik: Anwendung von CSS (Flexbox, Gradients und SVG) zur Erzeugung einer isometrischen 2.5D-Perspektive.
+Layout-Logik: Anwendung von CSS zur Erzeugung einer isometrischen 2.5D-Perspektive.
 
 Intentional Design: Die Erkenntnis, dass jedes visuelle Element (z. B. der Nazgûl-Alert) direkt den System-Nutzen der Gefahrenvermeidung unterstützen muss.
 
