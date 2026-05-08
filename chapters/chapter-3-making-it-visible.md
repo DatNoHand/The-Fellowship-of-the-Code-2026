@@ -13,11 +13,9 @@
 ---
 
 ## Summary
-
 Dieses Kapitel konzentriert sich auf die visuelle Repräsentation und strukturelle Implementierung der 2.5D-Karte. Nachdem die Logik im Wireframe festgelegt wurde, ging es nun darum, die Benutzeroberfläche in konkreten, semantischen Code zu übersetzen. Es zeigt, wie wir durch HTML und CSS eine räumliche Tiefe erzeugt haben, um die Navigation der Gefährten intuitiv und sicher zu gestalten.
 
 **Learning Outcomes**
-
 Semantik: Verständnis dafür, wie HTML-Struktur (Header, Main, Section) die Hierarchie des Interfaces ohne visuelle Dekoration ausdrückt.
 
 Layout-Logik: Anwendung von CSS (Flexbox, Gradients und SVG) zur Erzeugung einer isometrischen 2.5D-Perspektive.
@@ -33,15 +31,14 @@ Intentional Design: Die Erkenntnis, dass jedes visuelle Element (z. B. der Nazg�
 **Interface:** [interface.html](../artifacts/artifact-3/src/interface.html) · [style.css](../artifacts/artifact-3/src/style.css)
 
 **Build:**
-
 Statische Single-Page-App in HTML/CSS mit JavaScript-Navigation zwischen vier Screens: Launcher, Kartenansicht (isometrische SVG-Karte), Routenvergleich und Gefahren-Warnung als Bottom Sheet.
 
 **Focus:**
-
 Hier ist der überarbeitete Entwurf für dein Red Book, exakt im Format des von dir bereitgestellten Templates und angepasst an eure spezifische Capability (2.5D Karte) sowie eure Gruppe IsengardInnovations.
 
-## AI Assistance
+---
 
+## AI Assistance
 Wir haben bei diesem Meilenstein fast den gesamten Code über die KI generieren lassen. Dabei haben wir gelernt, dass die Qualität des Ergebnisses extrem davon abhängt, wie präzise man die Anweisungen gibt.
 
 Vorgehensweise: Wir mussten der KI ganz genau sagen, was wir wollen – von der Struktur der SVG-Elemente bis hin zu den spezifischen CSS-Farben aus unserem Design-Konzept.
