@@ -69,7 +69,7 @@ Allwissendes Nachschlagewerk für Kreaturen, Überlebenstipps, Magie, Tränke un
 
 ### v1.3 artifact 3 
 
-Artifact 3 erstellt
+Artifact 3 erstellt & Chapter 3 verlinkt
 
 ### v1.2
 
