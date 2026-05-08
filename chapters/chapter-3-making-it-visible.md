@@ -28,8 +28,6 @@ Intentional Design: Die Erkenntnis, dass jedes visuelle Element (z. B. der Nazg�
 
 **Dokumentation:** [Artifact 3 — Representation](../artifacts/artifact-3/artifact-3-representation.md)
 
-**Interface:** [interface.html](../artifacts/artifact-3/src/interface.html) · [style.css](../artifacts/artifact-3/src/style.css)
-
 **Build:**
 Eine statische Repräsentation der Capability "2.5D Karte & Navigation". Die technische Umsetzung basiert auf einem Zusammenspiel von HTML-Strukturen und CSS-Styling, um eine isometrische Ansicht mit Gefahren-Warnungen zu simulieren.
 
