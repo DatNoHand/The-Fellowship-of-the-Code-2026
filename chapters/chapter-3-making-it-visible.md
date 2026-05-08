@@ -31,10 +31,10 @@ Intentional Design: Die Erkenntnis, dass jedes visuelle Element (z. B. der Nazg�
 **Interface:** [interface.html](../artifacts/artifact-3/src/interface.html) · [style.css](../artifacts/artifact-3/src/style.css)
 
 **Build:**
-Statische Single-Page-App in HTML/CSS mit JavaScript-Navigation zwischen vier Screens: Launcher, Kartenansicht (isometrische SVG-Karte), Routenvergleich und Gefahren-Warnung als Bottom Sheet.
+Eine statische Repräsentation der Capability "2.5D Karte & Navigation". Die technische Umsetzung basiert auf einem Zusammenspiel von HTML-Strukturen und CSS-Styling, um eine isometrische Ansicht mit Gefahren-Warnungen zu simulieren.
 
 **Focus:**
-Hier ist der überarbeitete Entwurf für dein Red Book, exakt im Format des von dir bereitgestellten Templates und angepasst an eure spezifische Capability (2.5D Karte) sowie eure Gruppe IsengardInnovations.
+Der Fokus liegt auf der räumlichen Orientierung in feindseligem Gebiet. Das Interface unterstützt den Nutzer dabei, die sicherste Route zu finden, indem es Bedrohungen (wie Nazgûl-Sichtungen) optisch hervorhebt.
 
 ---
 
