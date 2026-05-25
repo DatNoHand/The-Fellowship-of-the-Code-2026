@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fellowship Companion – Gefahren-Warnung</title>
+  <link rel="stylesheet" href="FC-Design.css">
+  <style>
+    .app-shell { height: 100svh; }
+  </style>
+</head>
+<body>
+<div class="app-shell">
+
+  <div class="status-bar">
+    <span>9. Blumenmonat, S.Z. 3018</span>
+    <span class="status-threat">⚠ Bedrohung nahe</span>
+  </div>
+
+  <!-- Dimmed backdrop — faint echo of the route list behind the modal -->
+  <div class="warning-backdrop">
+
+    <div class="blurred-bg"></div>
+
+    <div class="bg-route-preview" aria-hidden="true">
+      <!-- Route 1 ghost -->
+      <div class="route-card recommended" style="pointer-events:none;">
+        <div class="route-card-header">
+          <span class="route-name">Grüne Auen Straße</span>
+          <span class="route-badge safe">Empfohlen</span>
+        </div>
+        <div class="route-stats">
+          <div class="stat-box"><span class="stat-value">8</span><span class="stat-label">Tagesreisen</span></div>
+          <div class="stat-box"><span class="stat-value">Leicht</span><span class="stat-label">Gelände</span></div>
+          <div class="stat-box"><span class="stat-value" style="color:var(--safe)">Niedrig</span><span class="stat-label">Gefahr</span><div class="danger-bar-wrap"><div class="danger-bar low"></div></div></div>
+        </div>
+      </div>
+      <!-- Route 2 ghost (highlighted — this is the selected route) -->
+      <div class="route-card high-risk" style="pointer-events:none;">
+        <div class="route-card-header">
+          <span class="route-name">Durch das Nebelmoor</span>
+          <span class="route-badge danger">Hohe Gefahr</span>
+        </div>
+        <div class="route-stats">
+          <div class="stat-box"><span class="stat-value">5</span><span class="stat-label">Tagesreisen</span></div>
+          <div class="stat-box"><span class="stat-value">Schwer</span><span class="stat-label">Gelände</span></div>
+          <div class="stat-box"><span class="stat-value" style="color:var(--danger)">Hoch</span><span class="stat-label">Gefahr</span><div class="danger-bar-wrap"><div class="danger-bar high"></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Warning bottom sheet — slides up over the backdrop -->
+    <div class="warning-sheet" role="dialog" aria-modal="true" aria-labelledby="warning-title">
+
+      <div class="warning-icon-wrap">
+        <div class="warning-icon">⚠</div>
+      </div>
+
+      <div class="warning-title" id="warning-title">Hohe Gefahr — Route bestätigen?</div>
+      <div class="warning-subtitle">
+        Frodo, diese Route führt durch das Nebelmoor.<br>
+        Willst du sie trotz aktiver Bedrohungen nehmen?
+      </div>
+
+      <div class="danger-details">
+        <div class="danger-detail-row">
+          <span class="detail-icon">👁</span>
+          <span class="detail-text">
+            <strong>2 Nazgûl-Sichtungen</strong> auf dieser Route in den letzten 2 Stunden
+          </span>
+        </div>
+        <div class="danger-detail-row">
+          <span class="detail-icon">🕐</span>
+          <span class="detail-text">
+            Zuletzt gesichtet <strong>vor 1 Stunde</strong> nahe Wetterspitze — Richtung Süden
+          </span>
+        </div>
+        <div class="danger-detail-row">
+          <span class="detail-icon">🌫</span>
+          <span class="detail-text">
+            Sumpf &amp; Moorgelände — verlangsamt den Marsch, kein schneller Rückzug möglich
+          </span>
+        </div>
+      </div>
+
+      <div class="warning-actions">
+        <a href="Fellowship-Companion-Page3.html" class="btn-cancel">
+          ← Andere Route
+        </a>
+        <a href="Fellowship-Companion-Page2.html" class="btn-confirm">
+          Trotzdem nehmen
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

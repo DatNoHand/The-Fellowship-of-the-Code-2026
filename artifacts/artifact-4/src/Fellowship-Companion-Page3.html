@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fellowship Companion – Routenvergleich</title>
+  <link rel="stylesheet" href="FC-Design.css">
+  <style>
+    .app-shell { height: 100svh; }
+  </style>
+</head>
+<body>
+<div class="app-shell">
+
+  <div class="status-bar">
+    <span>9. Blumenmonat, S.Z. 3018</span>
+    <span class="status-threat">⚠ Bedrohung nahe</span>
+  </div>
+
+  <div class="page-header fade-in">
+    <a href="Fellowship-Companion-Page2.html" class="back-btn" aria-label="Zurück zur Karte">←</a>
+    <div>
+      <div class="page-title">Routenvergleich</div>
+      <div class="page-sub">Ziel: Bree — 3 Routen verfügbar</div>
+    </div>
+  </div>
+
+  <div class="sort-bar">
+    <button class="sort-btn active" data-sort="danger">Gefahr ↑</button>
+    <button class="sort-btn" data-sort="distance">Distanz</button>
+    <button class="sort-btn" data-sort="terrain">Schwierigkeit</button>
+  </div>
+
+  <div class="route-list">
+
+    <!-- Route 1: Empfohlen — niedrige Gefahr -->
+    <a href="Fellowship-Companion-Page2.html" class="route-card recommended fade-in fade-in-1">
+      <div class="route-card-header">
+        <span class="route-name">Grüne Auen Straße</span>
+        <span class="route-badge safe">Empfohlen</span>
+      </div>
+      <div class="route-stats">
+        <div class="stat-box">
+          <span class="stat-value">8</span>
+          <span class="stat-label">Tagesreisen</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-value">Leicht</span>
+          <span class="stat-label">Gelände</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-value" style="color:var(--safe)">Niedrig</span>
+          <span class="stat-label">Gefahr</span>
+          <div class="danger-bar-wrap"><div class="danger-bar low"></div></div>
+        </div>
+      </div>
+      <p class="route-desc">
+        Bekannter Weg nördlich durch Bree-Land. Nazgûl zuletzt vor 6 Tagen
+        auf dieser Strecke gesehen — aktuell weitgehend sicher.
+      </p>
+    </a>
+
+    <!-- Route 2: Hohe Gefahr — führt zur Warnung auf Page 4 -->
+    <a href="Fellowship-Companion-Page4.html" class="route-card high-risk fade-in fade-in-2">
+      <div class="route-card-header">
+        <span class="route-name">Durch das Nebelmoor</span>
+        <span class="route-badge danger">Hohe Gefahr</span>
+      </div>
+      <div class="route-stats">
+        <div class="stat-box">
+          <span class="stat-value">5</span>
+          <span class="stat-label">Tagesreisen</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-value">Schwer</span>
+          <span class="stat-label">Gelände</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-value" style="color:var(--danger)">Hoch</span>
+          <span class="stat-label">Gefahr</span>
+          <div class="danger-bar-wrap"><div class="danger-bar high"></div></div>
+        </div>
+      </div>
+      <p class="route-desc">
+        Kürzeste Route — jedoch 2 Nazgûl-Sichtungen in den letzten 2 Stunden.
+        Sumpfgelände verlangsamt den Marsch erheblich.
+      </p>
+    </a>
+
+    <!-- Route 3: Niedrige Gefahr — langer Umweg -->
+    <a href="Fellowship-Companion-Page2.html" class="route-card fade-in fade-in-3">
+      <div class="route-card-header">
+        <span class="route-name">Über die Südhügel</span>
+        <span class="route-badge medium">Mittel</span>
+      </div>
+      <div class="route-stats">
+        <div class="stat-box">
+          <span class="stat-value">11</span>
+          <span class="stat-label">Tagesreisen</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-value">Mittel</span>
+          <span class="stat-label">Gelände</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-value" style="color:var(--safe)">Niedrig</span>
+          <span class="stat-label">Gefahr</span>
+          <div class="danger-bar-wrap"><div class="danger-bar low"></div></div>
+        </div>
+      </div>
+      <p class="route-desc">
+        Längste Option, aber bislang keine feindlichen Sichtungen.
+        Welliges Hügelland — für die gesamte Gruppe passierbar.
+      </p>
+    </a>
+
+  </div>
+
+</div>
+
+</body>
+</html>
