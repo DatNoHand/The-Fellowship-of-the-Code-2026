@@ -69,7 +69,7 @@ Allwissendes Nachschlagewerk für Kreaturen, Überlebenstipps, Magie, Tränke un
 
 ### v1.3 artifact 3 
 
-Wir haben chapter 3 erstellt und alle Aufgaben synchronisch abgearbeitet nach langer Diskussion mit sehr viel Herzblut und Energie. Diese Aufgabe war sehr wichtig und sehr ernst zu nehmen. Als 1. war es wichtig das Fundament richtig zu stellen.
+Artifact 3 erstellt & Chapter 3 verlinkt
 
 ### v1.2
 
