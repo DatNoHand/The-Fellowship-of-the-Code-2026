@@ -35,7 +35,7 @@ Die Funktion updateStatus() wurde aufgerufen, bevor die Validierung und die eige
 ### Problem 3: Inkonsistente UI-Initialisierung (Statisches HTML vs. Dynamischer Zustand)
 
 **Wo es auftritt:** 
-Im HTML-Code war die Zeile hartcodiert: <p id="status">Rations available: 10</p>.
+Im HTML-Code war die Zeile hartcodiert: Rations available: 10
 
 **Soll-Verhalten:** 
 Das UI sollte immer exakt das widerspiegeln, was im JavaScript-Code als Zustand hinterlegt ist.
