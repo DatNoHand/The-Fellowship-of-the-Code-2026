@@ -1,97 +1,48 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
-  <meta charset="UTF-8">
-
-  <title>Hobbit Rations Tracker</title>
-
-  <link rel="stylesheet" href="styles.css">
-
+  <meta charset="UTF-8">
+  <title>Hobbit Rations Tracker</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+  <h1>Hobbit Rations Tracker</h1>
+  <p id="status">Rations available: 10</p>
+  <input id="amount" type="number" placeholder="Amount">
+  <button id="add">Add Rations</button>
+  <button id="eat">Eat Rations</button>
 
-  <h1>Hobbit Rations Tracker</h1>
+  <script>
+    let rations = 10; // initial rations
+    //let rations von String zu Number geändert, damit die Addition und Subtraktion korrekt funktioniert
+    const statusText  = document.getElementById("status");
+    const amountInput = document.getElementById("amount");
+    const addButton   = document.getElementById("add");
+    const eatButton   = document.getElementById("eat");
 
-  <p id="status"></p>
+    function updateStatus() {
+        statusText.innerText = "Rations available: " + rations;
+    }
 
-  <input id="amount" type="number" placeholder="Amount">
+    addButton.addEventListener("click", () => {
+        const addRations = Number(amountInput.value); // Umwandlung von String zu Number, damit die Addition korrekt funktioniert
+        rations     = rations + addRations;
 
-  <button id="add">Add Rations</button>
+        updateStatus();
+    });
 
-  <button id="eat">Eat Rations</button>
+    eatButton.addEventListener("click", () => {
+        const eatRations = Number(amountInput.value); // Umwandlung von String zu Number, damit die Subtraktion korrekt funktioniert
 
- 
+        //updateStatus(); verschoben wegen schlechter Reihenfolge
 
-  <script>
-
-    let rations = 10; // initial rations
-
-    //let rations von String zu Number geändert, damit die Addition und Subtraktion korrekt funktioniert
-
-    const statusText  = document.getElementById("status");
-
-    const amountInput = document.getElementById("amount");
-
-    const addButton   = document.getElementById("add");
-
-    const eatButton   = document.getElementById("eat");
-
- 
-
-    function updateStatus() {
-
-        statusText.innerText = "Rations available: " + rations;
-
-    }
-
- 
-
-    addButton.addEventListener("click", () => {
-
-        const addRations = Number(amountInput.value); // Umwandlung von String zu Number, damit die Addition korrekt funktioniert
-
-        rations     = rations + addRations;
-
- 
-
-        updateStatus();
-
-    });
-
- 
-
-    eatButton.addEventListener("click", () => {
-
-        const eatRations = Number(amountInput.value); // Umwandlung von String zu Number, damit die Subtraktion korrekt funktioniert
-
- 
-
-        //updateStatus(); verschoben wegen schlechter Reihenfolge
-
- 
-
-        if (rations - eatRations < 0) {
-
-            alert("Not enough rations!");
-
-        } else {
-
-            rations = rations - eatRations;
-
-            updateStatus();
-
-        }
-
-    });
-
-  </script>
-
+        if (rations - eatRations < 0) {
+            alert("Not enough rations!");
+        } else {
+            rations = rations - eatRations;
+            updateStatus();
+        }
+    });
+  </script>
 </body>
-
 </html>
-
- 
