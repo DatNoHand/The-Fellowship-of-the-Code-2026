@@ -4,7 +4,7 @@
 
 Das Mini-Modul soll als einfache Anzeige- und Tracking-Schnittstelle für Essensrationen fungieren (im Grunde eine spezialisierte Taschenrechner-Logik). Nutzer können in einem Eingabefeld eine Menge eingeben und diese über den Button „Add Rations“ zum Gesamtbestand hinzufügen oder über „Eat Rations“ abziehen. Eine Statuszeile zeigt dynamisch den aktuellen Bestand an. Zudem gibt es eine Validierung: Es darf nicht mehr gegessen werden, als aktuell da ist.
 
-Verbesserung: [reading_the_runes.html](reading_the_runes.html)
+Verbesserung: [reading_the_runes.html](reading-the-runes.html)
 
 ## Identifizierte Probleme & Erklärung
 
