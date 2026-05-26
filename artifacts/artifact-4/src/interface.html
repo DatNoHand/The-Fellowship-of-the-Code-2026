@@ -7,64 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=IM+Fell+English:ital@0;1&family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="FC-Design.css">
-  <style>
-    /* ENTSCHEIDUNG: Screens werden per CSS ausgeblendet, nicht per JS-display-Setzen.
-       Grund: Einfacher lesbar, leichter zu debuggen, kein JS-Chaos mit inline styles.
-       .active wird per showScreen() gesetzt und entfernt. */
-    .screen { display: none; }
-    .screen.active { display: block; }
-
-    /* ENTSCHEIDUNG: <button> statt <a href> für alle interaktiven Elemente.
-       Browser-Defaults (background, border, font) werden hier global zurückgesetzt,
-       damit die bestehenden CSS-Klassen (.module-card, .map-cta, .route-card, .back-btn)
-       identisch aussehen wie vorher mit <a>. */
-    button {
-      font-family: inherit;
-      font-size: inherit;
-      background: none;
-      border: none;
-      padding: 0;
-      margin: 0;
-      cursor: pointer;
-      color: inherit;
-      text-align: left;
-    }
-
-    /* Jede app-shell füllt den Viewport — konsistent über alle Screens */
-    .screen.active .app-shell { height: 100svh; }
-
-    /* Karte: SVG füllt den map-container */
-    .map-svg {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      inset: 0;
-      display: block;
-    }
-
-    /* ENTSCHEIDUNG: Klickbare Karten-Bereiche bekommen cursor:pointer.
-       Kein visuelles Hover-Highlight über CSS — hält den SVG-Code sauber.
-       Im echten System würde man :hover-States auf den <g>-Elementen hinzufügen. */
-    .map-tap-target { cursor: pointer; }
-
-    /* Puls-Animation: Frodos Marker signalisiert "du bist hier" */
-    .user-pulse {
-      transform-origin: center;
-      animation: mapPulse 2s ease-out infinite;
-    }
-    @keyframes mapPulse {
-      0%   { opacity: 0.6; transform: scale(1); }
-      100% { opacity: 0;   transform: scale(2.2); }
-    }
-
-    /* Blink für Gefahrenmarker: visuelle Dringlichkeit ohne Text */
-    .danger-blink { animation: dangerBlink 1.8s ease-in-out infinite; }
-    @keyframes dangerBlink {
-      0%, 100% { opacity: 1; }
-      50%       { opacity: 0.4; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 

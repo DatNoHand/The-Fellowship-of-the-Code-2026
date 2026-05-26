@@ -1,0 +1,74 @@
+/* style.css — Fellowship Companion, Artifact 4
+   Importiert FC-Design.css (Dark-Fantasy-Theme, unverändert) und
+   ergänzt die für das Single-Page-Layout notwendigen Regeln.
+
+   ENTSCHEIDUNG: Trennung von Theme (FC-Design.css) und SPA-Struktur (dieser File).
+   Grund: FC-Design.css wird auch von den statischen Einzelseiten (Artifact 3) genutzt.
+   Änderungen hier betreffen nur das interaktive Interface. */
+
+@import "FC-Design.css";
+
+/* ── Screen-Switching ──────────────────────────────────────────────
+   ENTSCHEIDUNG: CSS-Klasse statt JS-display — besser lesbar, debuggbar.
+   .active wird per showScreen() gesetzt und entfernt.
+   Alle Screens existieren im DOM; nur einer ist jeweils sichtbar. */
+.screen         { display: none; }
+.screen.active  { display: block; }
+
+/* Jede app-shell braucht exakt 100svh — kein Overflow, kein Scrolling des Viewports */
+.screen.active .app-shell { height: 100svh; }
+
+
+/* ── Button-Reset ──────────────────────────────────────────────────
+   ENTSCHEIDUNG: <button> statt <a href> für alle Screen-Übergänge.
+   Grund: Kein Seiten-Reload, bleibt im SPA-Kontext.
+   Browser-Defaults (border, background, font) werden global zurückgesetzt,
+   damit Module-Card, Map-CTA, Route-Card und Back-Button identisch aussehen
+   wie in der statischen Version mit <a>-Tags. */
+button {
+  font-family: inherit;
+  font-size:   inherit;
+  background:  none;
+  border:      none;
+  padding:     0;
+  margin:      0;
+  cursor:      pointer;
+  color:       inherit;
+  text-align:  left;
+}
+
+
+/* ── Karten-Screen ─────────────────────────────────────────────────
+   SVG füllt den map-container vollständig.
+   position: absolute + inset: 0 ersetzt width/height: 100% für bessere Browser-Kompatibilität. */
+.map-svg {
+  width:    100%;
+  height:   100%;
+  position: absolute;
+  inset:    0;
+  display:  block;
+}
+
+/* ENTSCHEIDUNG: Klickbare Karten-Bereiche bekommen cursor:pointer via Klasse.
+   Kein :hover-Effekt — hält den SVG-Code schlank. Im Produktionscode würde
+   man fill-opacity-Transition hinzufügen. */
+.map-tap-target { cursor: pointer; }
+
+
+/* ── Karten-Animationen ────────────────────────────────────────────
+   Puls: Frodos Marker kommuniziert "du bist hier" ohne Text.
+   Blink: Gefahrenmarker vermittelt Dringlichkeit durch Bewegung. */
+.user-pulse {
+  transform-origin: center;
+  animation: mapPulse 2s ease-out infinite;
+}
+@keyframes mapPulse {
+  0%   { opacity: 0.6; transform: scale(1);   }
+  100% { opacity: 0;   transform: scale(2.2); }
+}
+
+.danger-blink { animation: dangerBlink 1.8s ease-in-out infinite; }
+@keyframes dangerBlink {
+  0%, 100% { opacity: 1;   }
+  50%       { opacity: 0.4; }
+}
