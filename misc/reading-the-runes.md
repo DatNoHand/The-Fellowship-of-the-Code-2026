@@ -13,9 +13,11 @@ Verbesserung: [reading_the_runes.html](reading-the-runes.html)
 **Wo es auftritt:** 
 
 Bei der initialen Definition der Variable (let rations = "10";) und der Verarbeitung des Eingabewerts (const value = amountInput.value;).
+
 **Soll-Verhalten:** 
 
 Die Anwendung muss sowohl den Startwert als auch die Eingabe als Zahlen behandeln, damit $10 + 2 = 12$ ergibt.
+
 **Ist-Verhalten:** 
 
 Da JavaScript den Wert aus dem Eingabefeld standardmäßig als Text (String) liest, bewirkt das +-Zeichen eine Textaneinanderreihung statt einer mathematischen Addition. Aus „10“ und „2“ wird der Text "102". Das Subtrahieren („Eat Rations“) funktionierte nur deshalb fehlerhaft, weil JavaScript bei einem --Zeichen versucht, den Text automatisch in eine Zahl umzuwandeln. Das sorgt für eine völlig inkonsistente Datenstruktur.
@@ -96,10 +98,13 @@ Der statische Text wurde aus dem HTML-Tag <p id="status"></p> entfernt. Stattdes
 ### KI-Reflexion (AI Assistance Reflection)
 
 **Was wurde die KI gefragt?:** 
+
 Wir haben die KI genutzt, um zu analysieren, warum das Eingabefeld die Zahlen als Text aneinanderhängt ("102") und warum bei der Subtraktion die Anzeige immer einen Schritt hinterherhinkte.
 
 **Was war hilfreich?:** 
+
 Die KI hat sofort erkannt, dass JavaScript Eingabewerte standardmäßig als Strings interpretiert, und hat uns präzise auf den chronologischen Fehler bei der Platzierung von updateStatus() hingewiesen.
 
 **Was fehlte / Was haben wir selbst entschieden?:** 
+
 Die KI schlägt oft nur den schnellsten syntaktischen Fix vor. Wir mussten selbst entscheiden, die Variablen sinnvoll umzubenennen (addRations, eatRations), um sauberen Code zu schreiben. Auch das Bereinigen des statischen HTML-Texts und die saubere Trennung von Logik und UI haben wir eigenständig umgesetzt, um eine saubere Software-Architektur zu gewährleisten.
