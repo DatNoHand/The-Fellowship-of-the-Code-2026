@@ -79,6 +79,7 @@ Generische Variablennamen wie const value in mehreren Funktionen machen den Code
 Der Startwert wurde als echte Zahl definiert (let rations = 10;) und das Eingabefeld im HTML auf type="number" umgestellt. Im Code wird die Eingabe nun mit Number() explizit konvertiert:
 
 const addRations = Number(amountInput.value);
+
 const eatRations = Number(amountInput.value);
 
 **Sprechende Variablennamen:**
