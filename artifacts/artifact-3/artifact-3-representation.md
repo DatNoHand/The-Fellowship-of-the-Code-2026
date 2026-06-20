@@ -16,7 +16,12 @@ Gerade in einer unsicheren Umgebung wie Mittelerde — Nazgûl auf den Fersen, u
 
 ## Statische Interface Implementation
 
-Link zu der Seite: [src/interface.html](src/interface.html)
+Link zu den Seiten:
+
+- [src/Fellowship-Companion.html](src/Fellowship-Companion.html) — Screen 1: Launcher
+- [src/Fellowship-Companion-Page2.html](src/Fellowship-Companion-Page2.html) — Screen 2: Kartenansicht
+- [src/Fellowship-Companion-Page3.html](src/Fellowship-Companion-Page3.html) — Screen 3: Routenliste
+- [src/Fellowship-Companion-Page4.html](src/Fellowship-Companion-Page4.html) — Screen 4: Gefahren-Warnung
 
 ---
 

@@ -31,7 +31,7 @@ Reflexion: Erkenntnis über die enge Verzahnung von Logik (Flowchart) und Interf
 
 **Dokumentation:** [Artifact 3 — Representation](../artifacts/artifact-3/artifact-3-representation.md)
 
-**Interface:** [interface.html](../artifacts/artifact-3/src/interface.html) · [style.css](../artifacts/artifact-3/src/style.css)
+**Interface:** [Launcher](../artifacts/artifact-3/src/Fellowship-Companion.html) · [Kartenansicht](../artifacts/artifact-3/src/Fellowship-Companion-Page2.html) · [Routenliste](../artifacts/artifact-3/src/Fellowship-Companion-Page3.html) · [Gefahren-Warnung](../artifacts/artifact-3/src/Fellowship-Companion-Page4.html) · [FC-Design.css](../artifacts/artifact-3/src/FC-Design.css)
 
 **Build:**
 
