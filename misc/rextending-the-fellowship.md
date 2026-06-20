@@ -6,6 +6,10 @@ Um zu testen, was außerhalb von klassischem, handgeschriebenem Code möglich is
 
 Wie in meinem Screenshot zu sehen ist, ist der Flow wie folgt aufgebaut:
 
+![Power Automate 1](Power%20Automate%201.png)
+
+![Power Automate 2](Power%20Automate%202.png)
+
 ### Trigger („Wenn ich erwähnt (@mentioned) werde")
 
 Das System läuft komplett im Hintergrund und überwacht die eingehenden Microsoft Teams in unserem Application Gruppenchat. Sobald mich jemand in einem Chat erwähnt, wird der Workflow automatisch gestartet.
