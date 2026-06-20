@@ -23,11 +23,22 @@ function selectTarget() {
 // Die Daten sind statisch — kein echtes Sortieren notwendig.
 // Im echten System würde hier die Route-Liste neu gerendert werden.
 
-document.querySelectorAll('.sort-btn').forEach(function (btn) {
-  btn.addEventListener('click', function () {
-    document.querySelectorAll('.sort-btn').forEach(function (b) {
+console.log('JS: ich hol mir alle buttons')
+var alle_buttons = document.querySelectorAll('.sort-btn')
+console.log('JS: folgendes wird für jeden button ausgeführt')
+alle_buttons.forEach(function (btn) {
+  console.log(`${btn.innerHTML}: aktueller button`)
+  console.log(`${btn.innerHTML}: wenn dieser button gedrückt wird, mach folgendes`)
+  btn.addEventListener('click', function (b) {
+    console.log(`${b.target.innerHTML}: ich wurde gedrückt!`)
+    console.log(`${b.target.innerHTML}: ich hole jetzt alle buttons!`)
+    let alle_buttons1 = document.querySelectorAll('.sort-btn')
+    alle_buttons1.forEach(function (b) {
+      console.log(`${b.innerHTML}: ich schalte mich inaktiv`)
       b.classList.remove('active');
     });
+
+    console.log(`${btn.innerHTML}: ich wurde gedrückt, ich schalte mich aktiv!`)
     btn.classList.add('active');
   });
 });

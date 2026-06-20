@@ -1,0 +1,238 @@
+/* style.css — Fellowship Companion, Artifact 5
+   Basis: artifact-4/src/style.css, unverändert übernommen.
+   Ergänzt nur die Regeln für Lexikon-Screens und den Wetter-Badge.
+
+   ENTSCHEIDUNG: Trennung von Theme (FC-Design.css) und SPA-Struktur (dieser File)
+   bleibt wie in Artifact 4 bestehen. */
+
+@import "FC-Design.css";
+
+/* ── Screen-Switching ────────────────────────────────────────────── */
+.screen         { display: none; }
+.screen.active  { display: block; }
+.screen.active .app-shell { height: 100svh; }
+
+
+/* ── Button-Reset ───────────────────────────────────────────────── */
+button {
+  font-family: inherit;
+  font-size:   inherit;
+  background:  none;
+  border:      none;
+  padding:     0;
+  margin:      0;
+  cursor:      pointer;
+  color:       inherit;
+  text-align:  left;
+}
+
+
+/* ── Karten-Screen ───────────────────────────────────────────────── */
+.map-svg {
+  width:    100%;
+  height:   100%;
+  position: absolute;
+  inset:    0;
+  display:  block;
+}
+.map-tap-target { cursor: pointer; }
+
+.user-pulse {
+  transform-origin: center;
+  animation: mapPulse 2s ease-out infinite;
+}
+@keyframes mapPulse {
+  0%   { opacity: 0.6; transform: scale(1);   }
+  100% { opacity: 0;   transform: scale(2.2); }
+}
+
+.danger-blink { animation: dangerBlink 1.8s ease-in-out infinite; }
+@keyframes dangerBlink {
+  0%, 100% { opacity: 1;   }
+  50%       { opacity: 0.4; }
+}
+
+
+/* ── Wetter-Badge ─────────────────────────────────────────────────
+   ENTSCHEIDUNG: gleiche visuelle Sprache wie .status-threat (bestehend) —
+   kleine Pille in der status-bar, kein neues UI-Element erfunden.
+   Inhalt wird von logic.js per fetchWeather()/applyWeatherEffects() gesetzt. */
+.weather-badge {
+  font-size:     0.72rem;
+  padding:       0.15rem 0.55rem;
+  border-radius: 999px;
+  background:    rgba(255,255,255,0.08);
+  white-space:   nowrap;
+}
+.weather-badge.weather-bad {
+  background: rgba(192,53,42,0.22);
+  color:      var(--danger, #c0352a);
+}
+
+
+/* ── Lexikon-Liste ────────────────────────────────────────────────
+   ENTSCHEIDUNG: wiederholt exakt das .route-list / .route-card Pattern
+   aus Artifact 4 — gleiche Spacing-/Card-Logik, andere Inhalte. */
+.lexikon-list {
+  display:        flex;
+  flex-direction: column;
+  gap:            0.75rem;
+  padding:        0 1rem 1.5rem;
+  overflow-y:     auto;
+}
+
+.lexikon-card {
+  display:        block;
+  width:          100%;
+  background:     var(--surface, #161616);
+  border:         1px solid var(--border, #2a2a2a);
+  border-radius:  10px;
+  padding:        0.85rem 1rem;
+  cursor:         pointer;
+}
+
+.lexikon-card-header {
+  display:         flex;
+  justify-content: space-between;
+  align-items:     center;
+  margin-bottom:   0.3rem;
+}
+
+.lexikon-card-name {
+  font-family: 'Cinzel', Georgia, serif;
+  font-weight: 600;
+}
+
+.lexikon-card-category {
+  font-size: 0.68rem;
+  opacity:   0.65;
+}
+
+.lexikon-recommend-tag {
+  font-size:     0.62rem;
+  padding:       0.1rem 0.45rem;
+  border-radius: 999px;
+  background:    rgba(94,201,148,0.18);
+  color:         var(--safe, #5ec994);
+  white-space:   nowrap;
+}
+
+.lexikon-card-summary {
+  font-size: 0.8rem;
+  opacity:   0.85;
+  margin:    0;
+}
+
+
+/* ── Lexikon-Detail ───────────────────────────────────────────────
+   ENTSCHEIDUNG: gleiche Inhaltsbreite/Padding wie .danger-details
+   (bestehend in screen-warning) — keine neue Layout-Konvention. */
+.lexikon-detail {
+  padding: 0 1rem 1.5rem;
+}
+
+.lexikon-detail-name {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size:   1.3rem;
+  font-weight: 600;
+  margin:      0.25rem 0 0.1rem;
+}
+
+.lexikon-detail-category {
+  font-size:     0.72rem;
+  opacity:       0.65;
+  margin-bottom: 0.9rem;
+}
+
+.lexikon-detail-text {
+  font-size:    0.9rem;
+  line-height:  1.5;
+  opacity:      0.9;
+}
+
+
+/* ── Lexikon: eigenen Eintrag hinzufügen ──────────────────────────
+   ENTSCHEIDUNG: gleiche Button-Optik wie .map-cta (bestehend) für den
+   Einstieg, gleiche Form-Felder-Optik für alle Inputs — ein Stil statt
+   pro Feldtyp eine eigene Regel. */
+.lexikon-add-btn {
+  display:        block;
+  width:          calc(100% - 2rem);
+  margin:         0 1rem 0.85rem;
+  padding:        0.6rem 0.85rem;
+  text-align:     center;
+  font-size:      0.82rem;
+  font-weight:    600;
+  border:         1px solid var(--border, #2a2a2a);
+  border-radius:  8px;
+  background:     rgba(94,201,148,0.1);
+  color:          var(--safe, #5ec994);
+}
+
+.lexikon-card.custom-entry {
+  border-color: var(--safe, #5ec994);
+}
+
+.lexikon-custom-tag {
+  font-size:     0.62rem;
+  padding:       0.1rem 0.45rem;
+  border-radius: 999px;
+  background:    rgba(94,201,148,0.18);
+  color:         var(--safe, #5ec994);
+  white-space:   nowrap;
+}
+
+.lexikon-form {
+  display:        flex;
+  flex-direction: column;
+  gap:            0.4rem;
+  padding:        0 1rem 1.5rem;
+  overflow-y:     auto;
+}
+
+.lexikon-form-label {
+  font-size:     0.72rem;
+  opacity:       0.7;
+  margin-top:    0.5rem;
+}
+
+.lexikon-form-input {
+  width:          100%;
+  font-family:    inherit;
+  font-size:      0.9rem;
+  color:          inherit;
+  background:     var(--surface, #161616);
+  border:         1px solid var(--border, #2a2a2a);
+  border-radius:  8px;
+  padding:        0.55rem 0.7rem;
+  box-sizing:     border-box;
+}
+
+.lexikon-form-textarea {
+  min-height: 6rem;
+  resize:     vertical;
+}
+
+.lexikon-form-actions {
+  display:         flex;
+  justify-content: space-between;
+  gap:              0.75rem;
+  margin-top:       1rem;
+}
+
+
+/* ── Cross-Link Warnung → Lexikon ─────────────────────────────────
+   ENTSCHEIDUNG: visuell wie ein sekundärer Button, aber eigene Klasse,
+   weil .btn-cancel/.btn-confirm bereits eine feste Bedeutung
+   (Routenwahl) in screen-warning haben. */
+.lexikon-crosslink {
+  display:        block;
+  width:          100%;
+  text-align:     center;
+  font-size:      0.78rem;
+  padding:        0.5rem;
+  margin:         0.75rem 0 0;
+  border:         1px dashed var(--border, #2a2a2a);
+  border-radius:  8px;
+  opacity:        0.85;
+}
