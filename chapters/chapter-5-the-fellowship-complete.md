@@ -31,8 +31,6 @@ Kontrollierte Erweiterung: Eine Extension zu wählen, die Bedeutung statt Optik 
 
 **Dokumentation:** [Artifact 5 — System-Integration & Extension](../artifacts/artifact-5/artifact-5-integration-extension.md)
 
-**Build:**
-
 **Interface:** [artifacts/artifact-5/src/interface.html](../artifacts/artifact-5/src/interface.html)
 
 **Styles:** [artifacts/artifact-5/src/style.css](../artifacts/artifact-5/src/style.css)
@@ -53,7 +51,7 @@ Der Fokus liegt auf Nachvollziehbarkeit der Verbindungen, nicht auf der Menge de
 
 ## AI Assistance
 
-Die KI hat in diesem Kapitel eine andere Rolle als zuvor: nicht mehr "wie baue ich diesen einen Screen", sondern "wie zeige ich, dass ein bestehendes System um genau ein Stück erweiterbar ist, ohne es umzubauen". Das verlangte zuerst, den aktuellen Stand (Artifact 1, 2, 4) korrekt zu rekonstruieren, bevor überhaupt etwas Neues entworfen wurde.
+Die KI hat in diesem Kapitel eine andere Rolle als zuvor: nicht mehr "wie baue ich diesen einen Screen", sondern "wie zeige ich, dass ein bestehendes System um genau ein Stück erweiterbar ist, ohne es umzubauen". Das verlangte zuerst, den aktuellen Stand (Artifact 1, 2, 4) korrekt zu rekonstruieren, bevor überhaupt etwas neues entworfen wurde.
 
 Vorgehensweise: Die KI hat zunächst die bestehenden Artefakte und den aktuellen Interface-Code gelesen, um die bereits angelegte, aber gesperrte Lexikon-Kachel zu finden — diese Beobachtung hat die Wahl der Capability bestätigt, statt sie zu erfinden.
 
