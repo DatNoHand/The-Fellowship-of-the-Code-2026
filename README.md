@@ -44,14 +44,19 @@ Der Fellowship Companion ist ihr digitaler Weggefährte. Er hilft ihnen, sich si
    [Go to Chapter II →](chapters/chapter-2-paths-and-choices.md)
 
 3. **Chapter III - Making it Visible**  
-   *"All that is gold does not glitter, Not all those who wander are lost;The old that is strong does not wither, Deep roots are not reached by the frost."* . Aragon
+   *"All we have to decide is what to do with the time that is given us." - Gandalf*
 
    [Go to Chapter III →](chapters/chapter-3-making-it-visible.md)
 
-3. **Chapter IV - When things react**  
-   *"Even the smallest person can change the course of the future." - Galadriel*
+4. **Chapter IV - When Things React**  
+   *"Nicht alle, die wandern, sind verloren." - J.R.R. Tolkien*
 
    [Go to Chapter IV →](chapters/chapter-4-when-things-react.md)
+
+5. **Chapter V - The Fellowship, Complete**  
+   *"Nicht alle, die wandern, sind verloren." - J.R.R. Tolkien*
+
+   [Go to Chapter V →](chapters/chapter-5-the-fellowship-complete.md)
 
 
 ## Key Features of The Fellowship Companion
@@ -72,13 +77,17 @@ Allwissendes Nachschlagewerk für Kreaturen, Überlebenstipps, Magie, Tränke un
 > This is our general changelog (e.g., new chapter contents added, rules changed, or major system revisions).
   Each chapter has its own detailed changelog for chapter-specific updates.
 
-### v1.4 
+### v1.5 artifact 5
 
-capter 4 added
+Chapter 5 hinzugefügt: Lexikon (Wissensressource) als zweite Capability integriert, plus Wetter-API als kontrollierte Extension. Erstes Mal, dass das System eine echte externe Abhängigkeit hat.
 
-### v1.3
+### v1.4 artifact 4
 
-Artifact 3 erstellt & Chapter 3 verlinkt
+Chapter 4 hinzugefügt (Logic & State, Navigation interaktiv gemacht).
+
+### v1.3 artifact 3 
+
+Wir haben chapter 3 erstellt und alle Aufgaben synchronisch abgearbeitet nach langer Diskussion mit sehr viel Herzblut und Energie. Diese Aufgabe war sehr wichtig und sehr ernst zu nehmen. Als 1. war es wichtig das Fundament richtig zu stellen.
 
 ### v1.2
 

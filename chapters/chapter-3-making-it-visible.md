@@ -13,14 +13,17 @@
 ---
 
 ## Summary
-Dieses Kapitel konzentriert sich auf die visuelle Repräsentation und strukturelle Implementierung der 2.5D-Karte. Nachdem die Logik im Wireframe festgelegt wurde, ging es nun darum, die Benutzeroberfläche in konkreten, semantischen Code zu übersetzen. Es zeigt, wie wir durch HTML und CSS eine räumliche Tiefe erzeugt haben, um die Navigation der Gefährten intuitiv und sicher zu gestalten.
+
+Dieses Kapitel konzentriert sich auf die Konzeptionsphase und das UI-Design des Fellowship Companions.
+Bevor der erste Stein gemauert wurde (Code), mussten wir die Pfade kartografieren und uns in die Köpfe unserer Gefährten begeben. Es zeigt, wie wir durch Flowcharts und Wireframes festgelegt haben, welche Wege ein Nutzer gehen kann und wie die Gefährten-App optisch Gestalt annimmt.
 
 **Learning Outcomes**
-Semantik: Verständnis dafür, wie HTML-Struktur (Header, Main, Section) die Hierarchie des Interfaces ohne visuelle Dekoration ausdrückt.
 
-Layout-Logik: Anwendung von CSS zur Erzeugung einer isometrischen 2.5D-Perspektive.
+Georg: Verstehen, wie unser Feature visuell aufgebaut sein soll und welcher konkrete Use-Case dahintersteckt.
 
-Intentional Design: Die Erkenntnis, dass jedes visuelle Element (z. B. der Nazgûl-Alert) direkt den System-Nutzen der Gefahrenvermeidung unterstützen muss.
+Methodik: Anwendung von Mermaid.ai für die Logik; KI inkl. Gandalf AI für die Wireframes und als strategischer Ratgeber.
+
+Reflexion: Erkenntnis über die enge Verzahnung von Logik (Flowchart) und Interface (Wireframe).
 
 ---
 
@@ -28,28 +31,24 @@ Intentional Design: Die Erkenntnis, dass jedes visuelle Element (z. B. der Nazg�
 
 **Dokumentation:** [Artifact 3 — Representation](../artifacts/artifact-3/artifact-3-representation.md)
 
+**Interface:** [interface.html](../artifacts/artifact-3/src/interface.html) · [style.css](../artifacts/artifact-3/src/style.css)
+
 **Build:**
-Eine statische Repräsentation der Capability "2.5D Karte & Navigation". Die technische Umsetzung basiert auf einem Zusammenspiel von HTML-Strukturen und CSS-Styling, um eine isometrische Ansicht mit Gefahren-Warnungen zu simulieren.
+
+Statische Single-Page-App in HTML/CSS mit JavaScript-Navigation zwischen vier Screens: Launcher, Kartenansicht (isometrische SVG-Karte), Routenvergleich und Gefahren-Warnung als Bottom Sheet.
 
 **Focus:**
-Der Fokus liegt auf der räumlichen Orientierung in feindseligem Gebiet. Das Interface unterstützt den Nutzer dabei, die sicherste Route zu finden, indem es Bedrohungen (wie Nazgûl-Sichtungen) optisch hervorhebt.
+
+Der Fokus dieses Slices liegt auf der bewussten Entscheidungsfindung des Nutzers in einer feindseligen Umgebung. Es geht nicht nur darum, von Punkt A nach Punkt B zu kommen, sondern die Abwägung zwischen Effizienz (Distanz) und Sicherheit (Gefahrenvermeidung) systemseitig zu unterstützen.
 
 ---
 
 ## AI Assistance
-Wir haben bei diesem Meilenstein fast den gesamten Code über die KI generieren lassen. Dabei haben wir gelernt, dass die Qualität des Ergebnisses extrem davon abhängt, wie präzise man die Anweisungen gibt.
 
-Vorgehensweise: Wir mussten der KI ganz genau sagen, was wir wollen – von der Struktur der SVG-Elemente bis hin zu den spezifischen CSS-Farben aus unserem Design-Konzept.
-
-Erfahrung: Wenn unsere Prompts detailliert genug waren, konnte die KI die komplexe 2.5D-Logik und die Animationen (wie das Blinken der Gefahrenmarker) fehlerfrei umsetzen.
-
-Entscheidung: Wir haben die Rolle der "Architekten" übernommen, die das Ziel vorgeben, während die KI die Rolle des "Maurers" übernahm, der den eigentlichen Code schreibt.
+Die KI hat uns am Anfang echt eine gute Grundlage geboten, um überhaupt erst mal einen Startpunkt für den Flowchart und das Wireframe zu haben. Ohne die Hilfe hätten wir wahrscheinlich ewig gebraucht, um die Capability in ein logisches Feature zu übersetzen. Aber wir haben schnell gemerkt, dass wir das nicht einfach so stehen lassen konnten: Wir mussten an extrem vielen Stellen unseren eigenen Feinschliff einbauen, weil die KI oft zu kompliziert gedacht hat oder das Design nicht zur Logik passte. Wir haben dann bewusst viele Sachen wieder rausgeworfen oder angepasst, damit jeder Button im Wireframe auch wirklich eine Entsprechung im Flowchart hat. Diese Abstimmung zwischen dem visuellen Entwurf und dem tatsächlichen Ablauf mussten wir am Ende komplett selbst machen, damit das Ganze für unser Projekt auch wirklich Sinn ergibt.
 
 ---
 
 ## Lessons Learned
-Präzision führt zum Ziel: Die größte Lerneffekt war, dass man keine Programmier-Experten sein muss, um gute Ergebnisse zu erzielen, solange man der KI extrem präzise Anweisungen geben kann.
 
-Struktur vor Code: Ohne unser fertiges Wireframe hätten wir der KI nicht sagen können, was sie bauen soll. Die konzeptionelle Vorarbeit war also der wichtigste Schritt.
-
-Alignment im Team: In unserer Gruppe IsengardInnovations haben wir gelernt, dass wir uns erst über das "Was" einig sein müssen, bevor wir die KI das "Wie" (den Code) erledigen lassen.
+Die Erstellung von Flowcharts und Wireframes mit KI-Unterstützung war für uns eine extrem steile Lernkurve. Zu Beginn war es ein echter Schock, wie viel man eigentlich dokumentieren und durchdenken muss, noch bevor man überhaupt mit dem eigentlichen Coden anfängt. Die größte Challenge war dabei das Alignment: Wir haben schmerzhaft gelernt, dass Flowchart und Wireframe exakt zusammenpassen müssen – jeder noch so kleine „Extra-Button“, den die KI uns in das Wireframe gebastelt hat, bedeutete sofort einen weiteren Pfad im Flowchart, den wir logisch abdecken mussten. Das hat die Dokumentation schnell aufgebläht. Unsere wichtigste Erkenntnis ist daher, dass man sich im Team viel früher und präziser absprechen muss, wie ein Feature am Ende wirklich aussehen soll. Wir haben gelernt, dass die KI zwar eine super Grundlage liefert, man aber ständig selbst den Feinschliff übernehmen muss, um nicht den Fokus zu verlieren und die Logik konsistent zu halten.

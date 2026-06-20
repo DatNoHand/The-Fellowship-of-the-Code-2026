@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Wireframe — Screens</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fff;
+    color: #000;
+    margin: 0;
+    padding: 32px;
+  }
+  h1 {
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0 0 24px;
+  }
+  .board {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    align-items: flex-start;
+  }
+  .frame {
+    width: 220px;
+  }
+  .frame-label {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+  .screen {
+    border: 2px solid #000;
+    width: 220px;
+    min-height: 400px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .box {
+    border: 1px solid #000;
+    padding: 4px 6px;
+    font-size: 10px;
+    line-height: 1.3;
+  }
+  .label { font-size: 9px; }
+  .statusbar { height: 16px; }
+  .header { height: 30px; display: flex; flex-direction: column; justify-content: center; }
+  .module { flex: 0 0 40px; border: 1px solid #000; display: flex; align-items: center; justify-content: center; }
+  .module.locked { border-style: dashed; }
+  .content { flex: 1 1 auto; }
+  .content.fill { flex: 1; }
+  .card { border: 1px solid #000; padding: 4px 6px; font-size: 9px; }
+  .row { display: flex; gap: 6px; }
+  .row > .box { flex: 1; }
+  .btn { border: 1px solid #000; padding: 4px 6px; font-size: 9px; text-align: center; }
+  .stack { display: flex; flex-direction: column; gap: 6px; flex: 1; }
+  .placeholder-line { border-bottom: 1px solid #000; height: 1px; margin: 4px 0; }
+  .dialog { border: 2px solid #000; margin: auto 0; padding: 8px; font-size: 9px; }
+  .x-area { border: 1px dashed #000; flex: 1 1 auto; display: flex; align-items: center; justify-content: center; font-size: 9px; }
+</style>
+</head>
+<body>
+
+<h1>Fellowship Companion — Neue Screens aus Artifact 5 (low-fi, ohne Grafik/Farbe)</h1>
+
+<div class="board">
+
+  <!-- Screen 5: Lexikon-Liste -->
+  <div class="frame">
+    <div class="frame-label">1. Lexikon (Liste)</div>
+    <div class="screen">
+      <div class="box statusbar">Datum · Wetter</div>
+      <div class="box" style="height:24px;">&larr; Titel</div>
+      <div class="btn" style="height:20px;">+ Eintrag hinzufügen</div>
+      <div class="stack">
+        <div class="card">Name — Kategorie<br>Text Text Text</div>
+        <div class="card">Name — Kategorie<br>Text Text Text</div>
+        <div class="card">Name — Kategorie<br>Text Text Text</div>
+        <div class="card">Name — Kategorie<br>Text Text Text</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 6: Lexikon-Detail -->
+  <div class="frame">
+    <div class="frame-label">2. Lexikon (Detail)</div>
+    <div class="screen">
+      <div class="box statusbar">Datum</div>
+      <div class="box" style="height:30px;">&larr; Titel<br>Untertitel</div>
+      <div class="content x-area">
+        Text Text Text Text Text<br>
+        Text Text Text Text Text<br>
+        Text Text Text Text Text
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 7: Lexikon — Neuer Eintrag -->
+  <div class="frame">
+    <div class="frame-label">3. Lexikon (Neuer Eintrag)</div>
+    <div class="screen">
+      <div class="box statusbar">Datum</div>
+      <div class="box" style="height:24px;">&larr; Titel</div>
+      <div class="stack">
+        <div class="box">Label<div class="placeholder-line"></div></div>
+        <div class="box">Label<div class="placeholder-line"></div></div>
+        <div class="box">Label<div class="placeholder-line"></div></div>
+        <div class="box" style="flex:1;">Label<div class="placeholder-line"></div></div>
+      </div>
+      <div class="row">
+        <div class="btn">Abbrechen</div>
+        <div class="btn">Speichern</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
